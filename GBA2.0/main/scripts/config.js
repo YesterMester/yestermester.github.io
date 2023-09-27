@@ -10,7 +10,7 @@ let relativePath = '';
 for (let i = 1; i < pathArray.length - 2; i++) {
   relativePath += '../';
 }
-let n64Location = relativePath + '../n64-host/';
+let n64Location = relativePath + 'https://yestermester.github.io/gba-host/;
 relativePath += '../gba-host/';
 
 let ndsLocation = 'https://rawcdn.githack.com/mathadventure1/nds-host/d4fab0b759e31d196f364333ecc0ab8842cc1203/'
