@@ -1,5 +1,3 @@
 filenames.txt
-results.txt
-resultsSearch.txt
-resultsMain.txt
-resultsMain.json
+gen.txt
+node_modules
