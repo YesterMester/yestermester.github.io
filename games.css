@@ -18,6 +18,7 @@
   .games-button {
     font-size: 25px;
     box-shadow: 5px 5px 10px 0px #d4d4d4;
+    font-family: Courier New;
     background-color: rgba(255, 255, 255, 0);
   }
 }
