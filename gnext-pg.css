@@ -1,0 +1,117 @@
+.navigation-links-nav {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.navigation-links-link {
+  text-decoration: none;
+}
+.navigation-links-link1 {
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.navigation-links-link2 {
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.navigation-links-link3 {
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+.navigation-links-root-class-name9 {
+  flex: 2;
+}
+
+
+
+.navigation-links-root-class-name17 {
+  flex: 2;
+}
+@media(max-width: 1200px) {
+  .navigation-links-link {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+  }
+  .navigation-links-link1 {
+    font-style: normal;
+    font-weight: 800;
+  }
+}
+@media(max-width: 767px) {
+  .navigation-links-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .navigation-links-link {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links-link1 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links-link2 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links-link3 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+}
+
+.gnext-pg-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0.00%,rgb(81, 64, 223) 100.00%);
+}
+.gnext-pg-text {
+  font-size: 60px;
+  font-family: "Arial Black";
+  border-radius: var(--dl-radius-radius-radius4);
+}
+.gnext-pg-container1 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.gnext-pg-link {
+  text-decoration: none;
+}
+.gnext-pg-link1 {
+  text-decoration: none;
+}
+@media(max-width: 1200px) {
+  .gnext-pg-text {
+    font-size: 60px;
+    font-family: Arial Black;
+  }
+  .gnext-pg-button {
+    border-width: 3px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .gnext-pg-link1 {
+    border-width: 3px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .gnext-pg-text5 {
+    text-decoration: none;
+  }
+}
