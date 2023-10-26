@@ -14,14 +14,26 @@
 .games-container3 {
   border: 2px dashed rgba(120, 120, 120, 0.4);
 }
-@media(max-width: 1200px) {
-  .games-button {
-    font-size: 45px;
-    box-shadow: rgb(212, 212, 212) 5px 5px 10px 0px;
-    font-style: normal;
-    font-family: Courier New;
-    font-weight: 700;
-    border-style: double;
-    border-width: 1px;
-    background-color: rgba(255, 255, 255, 0);
-  }
+
+.game-button {
+	box-shadow: 3px 7px 5px -2px #000000;
+	background-color:transparent;
+	border-radius:28px;
+	border:2px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Courier New;
+	font-size:17px;
+	font-weight:bold;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #1010e0;
+}
+.game-button:hover {
+	background-color:transparent;
+}
+.game-button:active {
+	position:relative;
+	top:1px;
+}
