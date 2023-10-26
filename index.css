@@ -21,6 +21,7 @@
   border-style: ridge;
   border-width: 2px;
   border-radius: 300px;
+  flex-direction: row;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
 .index-navlink {
@@ -113,4 +114,27 @@
 }
 .index-link2 {
   text-decoration: underline;
+}
+@media(max-width: 1200px) {
+  .index-button {
+    top: 272px;
+    right: 31px;
+  }
+  .index-navlink2 {
+    top: 348px;
+    left: 133px;
+    height: 89px;
+  }
+  .index-link {
+    top: 164px;
+    right: 22px;
+  }
+  .index-text03 {
+    top: 520px;
+    left: 34px;
+  }
+  .index-text04 {
+    top: 592px;
+    left: 28px;
+  }
 }
