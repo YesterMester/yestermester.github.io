@@ -1,5 +1,5 @@
 .games-container {
-  width: 100%;
+  width: auto;
   display: flex;
   overflow: auto;
   min-height: 100vh;
