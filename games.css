@@ -15,29 +15,55 @@
   border: 2px dashed rgba(120, 120, 120, 0.4);
 }
 
-.game-button {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  font-family: Courier New;
-  color: #ffffff;
-  font-size: 24px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
+ bold  italic
+Size
+Vertical Size: 
+7px
+Horizontal Size: 
+25px
+Border
+Border Radius: 
+18px
+Border Size: 
+1px
+ Box Shadow   /   inset
+Vertical Position: 
+4px
+Horizontal Position: 
+3px
+Blur Radius: 
+0px
+Spread Radius: 
+0px
+ Text Shadow
+Vertical Position: 
+1px
+Horizontal Position: 
+0px
+Blur Radius: 
+0px
+ prefix<a href="#" class="button">red</a>
 
-.game-button:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
+.button {
+	box-shadow: 3px 4px 0px 0px #8a2a21;
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	background-color:#c62d1f;
+	border-radius:18px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+}
+.button:hover {
+	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	background-color:#f24437;
+}
+.button:active {
+	position:relative;
+	top:1px;
 }
