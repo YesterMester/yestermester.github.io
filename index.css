@@ -6,11 +6,11 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
-  background-image: linear-gradient(to right, #c02425 0%, #f0cb35 100%);
+  background-image: linear-gradient(270deg, rgb(252, 0, 255) 0.00%,rgb(0, 219, 222) 100.00%);
 }
 .index-button {
-  top: 44px;
-  right: 35px;
+  top: 56px;
+  right: 3px;
   height: 81px;
   display: flex;
   position: absolute;
@@ -31,8 +31,8 @@
   text-decoration: none;
 }
 .index-navlink1 {
-  top: 44px;
-  left: 1288px;
+  top: 57px;
+  left: 1012px;
   height: 81px;
   display: flex;
   position: absolute;
@@ -49,8 +49,8 @@
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
 .index-navlink2 {
-  top: 46px;
-  left: 1025px;
+  top: 56px;
+  left: 754px;
   height: 81px;
   display: flex;
   position: absolute;
@@ -67,9 +67,9 @@
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
 .index-link {
-  top: 152px;
+  top: 175px;
   color: var(--dl-color-gray-black);
-  right: 21px;
+  right: 111px;
   height: 81px;
   display: flex;
   position: absolute;
@@ -115,37 +115,6 @@
 .index-link2 {
   text-decoration: underline;
 }
-@media(max-width: 1600px) {
-  .index-container {
-    background-image: linear-gradient(135deg, rgb(252, 0, 255) 0.00%,rgb(0, 219, 222) 100.00%);
-  }
-  .index-button {
-    top: 52px;
-    right: 16px;
-  }
-  .index-navlink1 {
-    top: 58px;
-    left: 1002px;
-  }
-  .index-navlink2 {
-    top: 60px;
-    left: 746px;
-    font-size: 70px;
-    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
-    font-style: italic;
-    font-family: Courier New;
-    font-weight: 700;
-    text-decoration: none;
-    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
-  }
-  .index-text04 {
-    font-size: 40px;
-    font-weight: 800;
-  }
-  .index-link2 {
-    text-decoration: underline;
-  }
-}
 @media(max-width: 1200px) {
   .index-button {
     top: 272px;
@@ -167,17 +136,5 @@
   .index-text04 {
     top: 592px;
     left: 28px;
-  }
-}
-@media(max-width: 991px) {
-  .index-navlink2 {
-    top: 268px;
-    left: 368px;
-  }
-}
-@media(max-width: 767px) {
-  .index-navlink2 {
-    top: 266px;
-    left: 132px;
   }
 }
