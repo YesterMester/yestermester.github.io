@@ -15,25 +15,25 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  width: 465px;
-  height: 66px;
+  width: 558px;
+  height: 78px;
   margin: auto;
   position: absolute;
-  font-size: 60px;
+  font-size: 75px;
   border-color: var(--dl-color-gray-black);
   border-style: ridge;
   border-width: 5px;
   border-radius: 25px;
   text-decoration: none;
 }
-@media(max-width: 1200px) {
+@media(max-width: 479px) {
   .privacy-policy-text {
-    top: 1px;
-    right: 1px;
-    width: 239px;
-    height: 21px;
-    position: absolute;
-    font-size: 100px;
+    top: 7px;
+    left: 255px;
+    right: var(--dl-space-space-unit);
+    width: 227px;
+    height: 38px;
+    font-size: 30px;
     text-decoration: none;
   }
 }

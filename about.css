@@ -3,10 +3,10 @@
   display: flex;
   overflow: auto;
   min-height: 100vh;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-image: linear-gradient(225deg, rgb(252, 0, 255) 0.00%,rgb(0, 219, 222) 100.00%);
+  background-image: linear-gradient(45deg, rgb(194, 229, 156) 0.00%,rgb(100, 179, 244) 100.00%);
 }
 .about-button {
   top: 44px;
@@ -30,9 +30,24 @@
   font-weight: 700;
   text-decoration: none;
 }
+.about-link {
+  display: contents;
+}
+.about-text2 {
+  top: 26px;
+  left: 21px;
+  position: absolute;
+  font-size: 100px;
+  border-color: var(--dl-color-gray-black);
+  border-style: ridge;
+  border-width: 5px;
+  border-radius: 25px;
+  text-decoration: none;
+}
 .about-navlink1 {
-  top: 46px;
-  left: 977px;
+  top: 34px;
+  left: 996px;
+  width: 258px;
   height: 81px;
   display: flex;
   position: absolute;
@@ -48,7 +63,36 @@
   text-decoration: none;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
-.about-link {
+.about-text3 {
+  top: 339px;
+  right: 0px;
+  position: absolute;
+  font-size: 50px;
+}
+.about-link1 {
+  font-style: normal;
+  font-weight: 800;
+  text-decoration: underline;
+}
+.about-navlink2 {
+  top: 32px;
+  left: 1266px;
+  width: 266px;
+  height: 91px;
+  display: flex;
+  position: absolute;
+  font-size: 70px;
+  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+  font-style: italic;
+  text-align: center;
+  font-family: "Courier New";
+  font-weight: 700;
+  border-style: ridge;
+  border-width: 2px;
+  border-radius: 300px;
+  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+}
+.about-link2 {
   top: 158px;
   color: var(--dl-color-gray-black);
   right: 20px;
@@ -67,44 +111,85 @@
   text-decoration: none;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
-.about-link1 {
-  display: contents;
-}
-.about-text2 {
-  top: 26px;
-  left: 21px;
+.about-date-time {
+  top: -7px;
+  flex: 1;
+  left: 1px;
+  width: var(--dl-size-size-maxwidth);
+  height: var(--dl-size-size-medium);
   position: absolute;
-  font-size: 100px;
-  border-color: var(--dl-color-gray-black);
-  border-style: ridge;
-  border-width: 5px;
-  border-radius: 25px;
-  text-decoration: none;
+  font-size: 35px;
 }
-.about-text3 {
-  top: 221px;
-  left: 134px;
-  position: absolute;
-  font-size: 60px;
-}
-.about-text4 {
-  top: 339px;
-  right: 0px;
-  position: absolute;
-  font-size: 50px;
-}
-.about-link2 {
-  font-style: normal;
-  font-weight: 800;
-  text-decoration: underline;
-}
-@media(max-width: 1200px) {
+@media(max-width: 479px) {
   .about-button {
-    top: 261px;
-    right: 14px;
+    top: 57px;
+    right: 6px;
+    width: 172px;
+    height: 47px;
+  }
+  .about-navlink {
+    font-size: 35px;
+    font-family: Courier New;
+  }
+  .about-text2 {
+    top: -4px;
+    left: -9px;
+    font-size: 30px;
+    text-decoration: none;
   }
   .about-navlink1 {
-    top: 36px;
-    right: 15px;
+    top: 53px;
+    left: 1px;
+    width: 146px;
+    height: 53px;
+    font-size: 35px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
+  .about-text3 {
+    font-size: 50px;
+  }
+  .about-text4 {
+    font-size: 20px;
+  }
+  .about-link1 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    text-decoration: underline;
+  }
+  .about-navlink2 {
+    top: 54px;
+    left: 153px;
+    width: 143px;
+    height: 50px;
+    font-size: 35px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
+  .about-link2 {
+    top: 125px;
+    left: 32px;
+    color: var(--dl-color-gray-black);
+    width: 387px;
+    height: 45px;
+    font-size: 35px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
+  .about-date-time {
+    top: 204px;
+    left: 19px;
   }
 }

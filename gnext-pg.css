@@ -3,10 +3,10 @@
   display: flex;
   overflow: auto;
   min-height: 100vh;
-  align-items: flex-start;
+  align-items: flex-end;
   flex-direction: column;
   justify-content: flex-start;
-  background-image: linear-gradient(270deg, rgb(252, 0, 255) 0.00%,rgb(0, 219, 222) 100.00%);
+  background-image: linear-gradient(#feac5e 0%, #c779d0 50%, #4bc0c8 100%);
 }
 .gnext-pg-button {
   top: 56px;
@@ -30,28 +30,9 @@
   text-decoration: none;
 }
 .gnext-pg-link {
-  top: 320px;
-  left: 8px;
-  color: var(--dl-color-gray-black);
-  height: 81px;
-  display: flex;
-  position: absolute;
-  font-size: 70px;
-  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
-  font-style: italic;
-  text-align: center;
-  font-family: "Courier New";
-  font-weight: 700;
-  border-style: ridge;
-  border-width: 2px;
-  border-radius: 300px;
-  text-decoration: none;
-  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
-}
-.gnext-pg-link1 {
   display: contents;
 }
-.gnext-pg-text2 {
+.gnext-pg-text02 {
   top: 26px;
   left: 21px;
   position: absolute;
@@ -65,24 +46,6 @@
 .gnext-pg-navlink1 {
   top: 57px;
   left: 766px;
-  height: 81px;
-  display: flex;
-  position: absolute;
-  font-size: 70px;
-  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
-  font-style: italic;
-  text-align: center;
-  font-family: "Courier New";
-  font-weight: 700;
-  border-style: ridge;
-  border-width: 2px;
-  border-radius: 300px;
-  text-decoration: none;
-  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
-}
-.gnext-pg-link2 {
-  top: 174px;
-  left: 458px;
   height: 81px;
   display: flex;
   position: absolute;
@@ -116,21 +79,136 @@
   flex-direction: row;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
-.gnext-pg-link3 {
+.gnext-pg-link1 {
   text-decoration: none;
 }
-@media(max-width: 1200px) {
-  .gnext-pg-navlink1 {
-    top: 265px;
-    right: 35px;
-  }
-  .gnext-pg-link2 {
-    top: 265px;
-    left: 372px;
-    right: 35px;
+.gnext-pg-date-time {
+  top: -7px;
+  flex: 1;
+  left: 1px;
+  width: var(--dl-size-size-maxwidth);
+  height: var(--dl-size-size-medium);
+  position: absolute;
+  font-size: 35px;
+}
+.gnext-pg-link2 {
+  top: 170px;
+  left: 732px;
+  width: 458px;
+  height: 88px;
+  display: flex;
+  position: absolute;
+  font-size: 70px;
+  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+  font-style: italic;
+  text-align: center;
+  font-family: "Courier New";
+  font-weight: 700;
+  border-style: ridge;
+  border-width: 2px;
+  border-radius: 300px;
+  padding-right: 0px;
+  flex-direction: row;
+  text-decoration: none;
+  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+}
+.gnext-pg-link3 {
+  top: 280px;
+  left: 2px;
+  color: var(--dl-color-gray-black);
+  width: 709px;
+  height: 81px;
+  display: flex;
+  position: absolute;
+  font-size: 70px;
+  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+  font-style: italic;
+  text-align: center;
+  font-family: "Courier New";
+  font-weight: 700;
+  border-style: ridge;
+  border-width: 2px;
+  border-radius: 300px;
+  text-decoration: none;
+  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+}
+.gnext-pg-link4 {
+  top: 174px;
+  left: 458px;
+  height: 81px;
+  display: flex;
+  position: absolute;
+  font-size: 70px;
+  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+  font-style: italic;
+  text-align: center;
+  font-family: "Courier New";
+  font-weight: 700;
+  border-style: ridge;
+  border-width: 2px;
+  border-radius: 300px;
+  padding-right: 0px;
+  text-decoration: none;
+  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+}
+.gnext-pg-text09 {
+  top: 201px;
+  right: 296px;
+  position: absolute;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+}
+@media(max-width: 479px) {
+  .gnext-pg-text02 {
+    font-size: 30px;
+    text-decoration: none;
   }
   .gnext-pg-button1 {
-    top: 444px;
-    left: 234px;
+    top: 100px;
+    left: 2px;
+    height: 50px;
+  }
+  .gnext-pg-link1 {
+    font-size: 35px;
+    text-decoration: none;
+  }
+  .gnext-pg-date-time {
+    top: 226px;
+    left: 8px;
+  }
+  .gnext-pg-link3 {
+    top: 159px;
+    left: -1px;
+    color: var(--dl-color-gray-black);
+    width: 378px;
+    height: 49px;
+    font-size: 35px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
+  .gnext-pg-link4 {
+    top: 99px;
+    left: 235px;
+    width: 138px;
+    height: 51px;
+    font-size: 35px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
+  .gnext-pg-text09 {
+    top: 369px;
+    left: -558px;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
   }
 }
