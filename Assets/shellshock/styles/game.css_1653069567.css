@@ -1,100 +1,3 @@
-/* Canvas */
-
-/* .canvas-wrapper.is-paused {
-	width: 70em ;
-	height: 60em;
-	overflow: hidden;
-} */
-
-.gameCanvas {
-    background: none;
-    width: 100%;
-	height: 100%;
-	margin: 0;
-	top: auto;
-	right: auto;
-	bottom: auto;
-    position: absolute;
-    pointer-events: none;
-	transition: height .3s ease-in-out, width .3s ease-in-out;
-	overflow: hidden;
-}
-
-.is-paused .gameCanvas {
-	margin-top: var(--ss-account-panel-height);
-	left: auto;
-	pointer-events: all;
-    border-radius: var(--ss-space-md);
-    border: solid var(--ss-blue1) 0.2em;
-}
-
-@media only screen and (max-width: 1200px)  {
-
-	.is-paused .gameCanvas {
-		overflow: visible;
-	}
-}
-
-.is-paused .gameCanvas canvas {
-    pointer-events: none;
-}
-
-/* .is-vip .gameCanvas {
-	transition: margin .3s ease-in-out , width .3s ease-in-out, height .3s ease-in-out, left .3s ease-in-out;
-    transform-origin: left top;
-	transform: translate(0, 0);
-	left: 0;
-}
-
-.is-paused:not(.is-vip) .gameCanvas {
-	left: 50%;
-    transform: translate(-50%, 0);
-    width: calc(100vw - var(--ss-main-sidebar-width) - 300px - 12em);
-    height: calc(100vh - 300px - var(--ss-account-panel-height) - 3em );
-	min-width: 30em;
-} */
-
-.gameCanvas {
-	transition: margin .3s ease-in-out , width .3s ease-in-out, height .3s ease-in-out, left .3s ease-in-out;
-    transform-origin: left top;
-	transform: translate(0, 0);
-	left: 0;
-}
-
-.is-paused .gameCanvas {
-	min-width: 31em;
-	margin-left: calc(var(--ss-main-sidebar-width));
-    width: calc(100vw - var(--ss-main-sidebar-width) - 1em);
-	height: calc(100vh - var(--ss-account-panel-height) - 2em);
-}
-
-/* .is-paused.is-vip .gameCanvas {
-	min-width: 31em;
-	margin-left: calc(var(--ss-main-sidebar-width));
-    width: calc(100vw - var(--ss-main-sidebar-width) - 1em);
-	height: calc(100vh - var(--ss-account-panel-height) - 2em);
-} */
-
-.is-paused #captureContainer, .is-paused #best_streak_container {
-    transform: translateX(-50%) scale(var(--paused-ui-scale));
-}
-
-.is-paused .player-list-wrapper {
-	transform: scale(var(--paused-ui-scale));
-    top: 0;
-    position: absolute;
-}
-
-.is-paused.is-vip #captureContainer, .is-paused #best_streak_container {
-    transform: translateX(-50%) scale(var(--paused-ui-vip-scale));
-}
-
-.is-paused.is-vip .player-list-wrapper {
-	transform: scale(var(--paused-ui-vip-scale));
-    top: 0;
-    position: absolute;
-}
-
 /* ----------------------------------------------------------------- HUD -- */
 
 #best_streak_container {
@@ -458,64 +361,11 @@
 	100% { transform: translateX(-50%) scale(0); visibility: hidden }
 }
 
-.is-paused .chat-wrapper {
-	left: var(--ss-space-md);
-	bottom: 1em !important;
-}
-
-.chat-wrapper.pause-ui-element {
-	bottom: var(--ss-space-lg);
-	left: var(--ss-space-lg);
-    width: 30%;
-}
-
-.is-paused .pause-ui-element {
-	background-color: rgba(12,87,111, 50%);
-    border: var(--ss-common-border-width) solid var(--ss-blue5);
-    bottom: 0;
-    width: var(--ss-chat-wrapper-width);
-    height: var(--ss--chat-height);
-}
-
-.is-paused .pause-ui-element.chat-hidden {
-	height: auto;
-}
-
-.is-paused #chatIn {
-	position: absolute;
-	display: block;
-	width: 11em;
-    left: var(--ss-space-md);
-}
-
-.is-paused .chat-container {
-    display: block;
-    height: calc(var(--ss--chat-height) - 4em);
-    margin-right: var(--ss-space-md);
-    margin-left: var(--ss-space-md);
-    overflow-x: hidden;
-	margin-top: var(--ss-space-md);
-}
-
-/* CrazyGames */
-@media (max-height: 660px) and (max-width: 1128px) {
-	.is-paused:not(.is-vip) .pause-popup--container {
-		top: 3em;
-	}
-}
-
 .chat {
+	position: absolute;
 	font-weight: bold;
 	color: var(--ss-white);
-	z-index: 5;
-}
-
-.chat-item {
-	hyphens: auto;
-}
-
-.chat-player-name {
-	font-weight: bolder;
+	z-index: 6;
 }
 
 #chatOut {
@@ -530,7 +380,7 @@
 	color: #ff0;
 	bottom: 1em;
 	left: 1em;
-	width: 100%;
+	width: 30%;
 	border: none;
 	background: none;
 }
@@ -568,63 +418,26 @@
 	background: rgba(0, 0, 0, 0.3);
 }
 
-#serverAndMapInfo h5, #readouts h5 {
-	color: var(--ss-blue1);
-}
-
-.is-paused #serverAndMapInfo  {
-	position: relative;
+#serverAndMapInfo {
+	position: absolute;
+	right: var(--ss-space-sm);
+	bottom: var(--ss-space-sm);
+	text-align: right;
+	color: var(--ss-white);
+	font-weight: bold;
+	font-size: 1.4em;
+	line-height: 1em;
+	z-index: 6;
 }
 
 #inGameUI {
+	position: absolute; right: 0.3em; top: 0em;
+}
+
+#readouts {
 	position: absolute;
-	right: .5em;
-	top: 4em;
-	right: 1.5em;
-    top: 5em;
-    padding: 1em;
-	background-color: rgba(12,87,111, 50%);
-    border: var(--ss-common-border-width) solid var(--ss-blue5);
-}
-
-#game_screen:not(.is-paused) #inGameUI {
-	top: 2.5em;
-}
-
-/* .is-paused:not(.is-vip) #inGameUI {
-	right: 1.5em;
-    top: 5em;
-    padding: 1em;
-} */
-
-.is-vip #inGameUI.pause-ui-element {
-	position: absolute;
-	right: 2em;
-	top: 4em;
-	background: none;
-	border: 0;
-}
-
-#inGameUI .title {
-    font-size: .8em;
-	color: #f7ef1d;
-}
-
-#inGameUI .name {
-    font-size: .6em;
-	line-height: 1;
-    margin: 0 0 0.5em;
-	padding: 0;
-	/* text-shadow: 0.1em 0.1em 0.2em var(--ss-blue5);
-	font-weight: 700; */
-}
-/* 
-.is-paused #inGameUI {
-    right: 3em;
-    top: 7em;
-} */
-
-#readouts, #serverAndMapInfo {
+	top: 2.2em;
+	right: 0em;
 	display: block; 
 	text-align: right; 
 	color: var(--ss-white);
@@ -634,16 +447,12 @@
 	text-transform: uppercase;
 	line-height: 1em;
 	white-space: nowrap;
-	z-index: 5;
-}
-
-.is-paused #readouts {
-	position: relative;
-	top: 0;
+	z-index: 6;
 }
 
 #readouts div {
 	display: inline;
+	font-size: 1em !important;
 	margin-left: 0.1em;
 }
 
@@ -657,12 +466,16 @@
 
 #chickenBadge {
 	position: absolute;
-    bottom: 3em;
-	right: 3em;
+	top: 5.25em;
+	width: 5em;
+	height: 5em;
+	right: var(--ss-space-sm);
+	z-index: 6;
 }
 
 #chickenBadge img {
-	width: 8em;
+	width: 100%;
+	height: 100%;
 }
 
 #scopeBorder {
@@ -711,19 +524,7 @@
 	width: 0.5em;
 }
 
-#reticleDot {
-	position: absolute;
-	transform: translate(-50%, -50%);
-	top: 50%;
-	left: 50%;
-	background: white;
-	border: solid 0.05em black;
-	width: 0.3em;
-	height: 0.3em;
-	opacity: 0.7;
-}
-
-#redDotReticle {
+#dotReticle {
 	position: absolute;
 	left: 50%; top: 50%;
 	transform: translate(-50%, -50%);
@@ -757,30 +558,36 @@
 	box-sizing: border-box;
 	position: absolute;
 	left: 50%;
+	width: 2.5em;
+	height: 100%;
 	transform-origin: center;
 	background: transparent;
 	border: solid;
-	border-radius: 30%;
+	border-left: solid transparent;
+	border-right: solid transparent;
+	border-radius: 1.25em 1.25em 1.25em 1.25em;
 }
 
-.shotReticle:nth-child(odd) {
-	transform: translate(-50%, 33%) rotate(0deg);
-	width: 4em;
-	height: 60%;
+.shotReticle:nth-child(1n) {
+	transform: translateX(-50%) rotate(0deg);
 }
 
 .shotReticle:nth-child(2n) {
 	transform: translateX(-50%) rotate(90deg);
-	width: 2.5em;
-	height: 100%;
+}
+
+.shotReticle.fill {
+}
+
+.shotReticle.border {
 }
 
 .shotReticle.fill.normal {
 	border-color: white;
 	border-left: solid transparent;
 	border-right: solid transparent;
-	border-width: 0.18em;
-	padding: 0.18em;
+	border-width: 0.1em;
+	padding: 0.1em;
 }
 
 .shotReticle.fill.powerful {
@@ -1309,7 +1116,9 @@
     bottom: 0;
     right: 0;
 }
-
+#pausePopup, .player__container {
+	position: relative;
+}
 .player__container {
 	margin: var(--ss-space-lg) var(--ss-space-lg) 0 var(--ss-space-lg);
 	height: 50vh;
@@ -1320,184 +1129,34 @@
 	top: 0;
 	left: 0;
 }
-
-#pause-screen-player-list .player__container {
-	margin: 0;
-	position: relative;
-    width: 100%;
-    height: calc(100% - 6em);
-	flex: none;
-	overflow-x: hidden;
-    max-width: none;
-    overflow-y: scroll;
-    padding-right: 1em;
-    box-sizing: content-box;
-}
-
-#pause-screen-player-list.pause-screen-free-for-all .player__container {
-	height: calc(100% - 2em);
-}
-
-#pause-screen-player-list {
-	padding-left: var(--ss-space-lg);
-	overflow: hidden;
-    justify-content: space-between;
-	min-height: 32em;
-
-}
-
-#pause-screen-player-list #playerList {
-	display: flex;
-	flex-direction: column;
-    z-index: 6;
-	position: relative;
-    width: calc(100% - 1em);
-}
-
-#pause-screen-player-list .playerSlot--name-score {
-    width: 100%;
-}
-
-#pausePopup.popup_lg {
-	/* width: 100vw;
-    height: 100vh;
-    border-radius: 0; */
-    border: 0;
-    padding: 0;
-    margin: 0;
-	/* background: var(--ss-lightoverlay) no-repeat center center fixed; */
-	background: none;
-	top: 23em;
-}
-
-#pausePopup .canvas-wrapper.is-paused .gameCanvas {
-	top: 0;
-}
-
-.switch-teams-btn {
-	order: 2
-}
-
-.pause-screen-wrapper {
-    /* height: calc(100vh - 1em); */
-	/* transform: scale(1.6); */
-}
-
-.pause-screen-wrapper-no-vip .pause-ad-wrap {
-	grid-template-columns: auto minmax(300px, 350px);
-}
-
-.pause-screen-wrapper-no-vip {
-	grid-template-rows: 4em auto minmax(250px, auto);
-}
-
-.pause-screen-wrapper-is-vip {
-    grid-template-columns: var(--ss-sidebar-width) minmax(26em, auto);
-	grid-template-rows: calc(var(--ss-space-lg)*5) auto auto auto;
-}
-
-.pause-screen-wrapper-is-vip .pause-popup--container {
-    grid-row: span 2;
-}
-
-.pause-screen-wrapper-is-vip .chw-progress-wrapper {
-	margin: var(--ss-space-lg) 0;
-}
-
-.pause-container .chw-progress-bar-wrap {
-	height: 2.75em;
-	cursor: auto;
-}
-
-.chw-progress-bar-wrap:hover p,
-.chw-progress-bar-wrap:hover .chw-ready.chw-progress-bar-inner {
-	cursor: pointer;
-}
-
-.chw-progress-bar-wrap:hover .chw-ready.chw-progress-bar-inner {
-	transition: background-color 0.1s ease-in-out;
-	background-color: var(--ss-yolk2);
-}
-
-.chw-egg-bundle {
-    top: 1.25em;
-    right: -1em;
-	height: 5em;
-}
-
-.pause-screen-wrapper-no-vip, .pause-screen-wrapper-is-vip .pause-screen-header {
-	    grid-template-columns: var(--ss-sidebar-width) minmax(26em, auto) minmax(315px, 15em);
-}
-
-.pause-screen-wrapper-no-vip  .pause-screen-header {
-	grid-template-columns: var(--ss-sidebar-width) minmax(26em, auto) var(--ss-sidebar-width);
-}
-.pause-screen-wrapper-is-vip .pause-screen-header {
-    grid-template-columns: var(--ss-sidebar-width) auto auto;
-}
 .pause-popup--container {
-	width: 100%;
-    margin: 0 auto;
-	opacity: 0;
+    display: grid;
+    width: auto;
+    grid-template-columns: 15.5em auto 26em;
+    margin-top: 8em;
+    margin-right: auto;
+	margin-left: auto;
+    grid-gap: 2em;
 }
-
-.pause-popup--container #chickenBadge {
-    top: auto;
-    bottom: 0;
-    right: 1em;
-    height: auto;
-	width: 8em;
+.pause-popup--container .fullwidth {
+	width: auto !important;
+	max-width: none !important;
 }
-
-.is-paused .pause-popup--container {
-	opacity: 1;
-	transition: opacity .6s ease-in-out;
-	transition-delay:.3s
-}
-
-.paused-game-ui {
-	top: 0;
-	height: 100vh;
-}
-
-.is-paused .paused-game-ui {
-	height: calc(100vh - var(--ss-account-panel-height) - 2em);
-}
-
-/* .pause-screen-content {
-    width: 28em;
-    height: 10em;
-} */
-
-.pause-screen-ui {
-	z-index: 7;
-}
-
-.pause-popup--container #game-ui {
-	z-index: 1;
-	transform: scale(.5) translateX(-50%);
-	position: absolute;
-	left: 50%;
-}
-
-.pause-screen-wrapper-is-vip .pause-popup--container #game-ui {
-	transform: scale(.7) translateX(-50%);
-
-}
-
-.pause-popup--container #bestStreak {
-	background-color: transparent;
-}
-
-.pause-screen-content .weapon-select--title h1 {
-	padding: 0;
-	margin: 0 0 .5em !important;
-	background: none;
-	line-height: 1;
-}
-
-.pause-game-weapon-select p {
-	display: none;
+#pausePopup {
+	top: auto;
+	left: auto;
+	transform: none;
+	/* width: 970px; */
+	/* width: 70em; */
+	width: auto;
+	padding: var(--ss-space-md);
+	min-height: 17.7em;
+	display: flex;
+	justify-content: center;
+    margin-right: auto;
+	margin-left: auto;
+	grid-column: 2 / span 1;
+    align-self: center;
 }
 
 .pause-btn-group .ss_button {
@@ -1506,41 +1165,29 @@
 	margin-bottom: .5em;
 	height: 2.3em;	
 }
-
-.pause-screen-header {
-	padding-right: var(--ss-space-lg);
-    top: 0;
-    right: 0;
-    width: calc(100vw - var(--ss-main-sidebar-width));
-	height: var(--ss-account-panel-height);
-}
-
-.pause-screen-play-btn {
-    bottom: 5em;
-	top: auto;
-}
-
-#pausePopup .fa-play {
-    font-size: .9em;
-    padding-right: 0.2em;
+.pause-bg #weapon_select {
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin-bottom: 0
 }
 
 #game-play-switch {
 	margin-top: 0;
-	gap: .5em;
-}
-
-.game-play-switch .ss_button {
-	margin-bottom: 0;
 }
 
 .weapon-select--title h1 {
     color: var(--ss-white);
-	font-size: 1.3em;
     background: none;
-    margin-bottom: var(--ss-space-md);
+	padding: 0;
+	margin: 0;
 }
 
+/* @media screen and ( max-height: 690px ), screen and (max-width: 995px) {
+	.playing-poki .pause-popup--container {
+		margin-right: auto;
+		margin-left: 36em;
+	}
+} */
 @media only screen and (min-width: 1420px)  {
 	#inGameScaler {
 		margin: 0 auto;
@@ -1557,74 +1204,43 @@
 	z-index: 10;
 	margin-right: auto;
 	margin-left: auto;
-}
-
-#pauseAdPlacement {
-	top: 50%;
+	/* min-width: 40em; */
     display: flex;
-	transform: translate(0, -50%);
 }
-
 .pauseFiller.shellshockers-respawn-banner-2 {
 	min-width: auto;
 }
-
 #pauseAdPlacement iframe,
-.pauseFiller iframe,
-.pauseFiller
-.display-ad-container > div,
-.display-ad-container > div > div,
-.display-ad-container > img {
+.pauseFiller iframe{
 	margin: 0 auto;
 	display: block;
+	/*position: absolute;
+	transform-origin: left top;
+	transform: translateX(-50%);*/
 }
 
-.pause-container {
-	z-index: 7;
+.display-ad-container > div,
+.display-ad-container > img {
+	margin: 0 auto;
 }
-
-.playing-crazy-games .pause-container.centered {
-	transform: translate(-50%, -40%) !important;
-}
-
-.is-paused:not(.is-vip) .gameCanvas .pause-container.centered_x {
-	bottom: 17em;
-}
-
-/* Display ads */
 
 .respawn-container {
 	display: block;
 	margin: 0 auto;
-	z-index: 2000;
 }
 
 .respawn-one {
-    min-height: 300px;
-	width: 970px;
-	bottom: -16.5em;
-	left: 0;
-}
-
-
-.respawn-one .shellshockers-respawn-banner-pr {
-	margin: 25px auto 0;
+    grid-column: 1 / span 3;
+    display: block;
+	margin: 0 auto;
+    z-index: 6;
+	position: relative;
+	min-height: 10em;
 }
 
 .respawn-two {
-    right: -16.5em;
-    top: 0;
-    bottom: 19em;
-	width: 300px;
-	min-height: 250px;
-}
-
-body > #shellshockers_respawn_banner-new {
-	position: absolute;
-}
-
-body > #shellshockers_respawn_banner-new > div{
-	position: absolute;
+	margin: 0;
+    grid-column: 3 / span 1;
 }
 
 @media only screen and (max-width: 1200px)  {
@@ -1632,7 +1248,6 @@ body > #shellshockers_respawn_banner-new > div{
 		margin: 0;
 	}
 }
-
 #playerList {
 	display: table;
 	border-collapse: separate;
@@ -1668,16 +1283,12 @@ body > #shellshockers_respawn_banner-new > div{
 	text-shadow: 1px 1px 2px rgb(0 0 0 / 50%);
 }
 
-.playerSlot--name {
-	overflow: hidden;
-}
-
 .playerSlot--name-score {
 	display: block;
 	width: 12em;
 	padding: 0.05em 0.5em 0.05em 0.5em;
 	border-radius: 0.2em;
-	overflow: hidden;
+	overflow-y: hidden;
 	font-weight: 600;
 }
 .playerSlot--score {
@@ -1748,64 +1359,19 @@ body > #shellshockers_respawn_banner-new > div{
 	margin: 0 auto var(--ss-space-md) auto;
 	white-space: nowrap;
 }
-.btn-respawn {
-	min-width: 6em;
-	margin-bottom: 0;
+.pause-popup--btn-group .ss_button:first-child {
+	margin-left: 0 !important;
 }
-
-.btn-respawn.bevel_green {
-	box-shadow: .15em .15em 0 rgba(0, 0, 0,.3), var(--ss-btn-dark-bevel) rgb(14,140,76), var(--ss-btn-light-bevel) var(--ss-green0);
+.pause-popup--btn-group .ss_button {
+    margin: 0 0 0 0 !important;
 }
-.btn-respawn.bevel_red {
-	box-shadow: .15em .15em 0 rgba(0, 0, 0,.3), var(--ss-btn-dark-bevel) rgb(209,20,20), var(--ss-btn-light-bevel) var(--ss-red0);
+.btn__team_switch {
+	line-height: 3.9;
+	font-size: .8em;
+	margin-right: 1em;
 }
-
-.btn-respawn.bevel_blue {
-	box-shadow: .15em .15em 0 rgba(0, 0, 0,.3), var(--ss-btn-dark-bevel) rgb(8,110,141), var(--ss-btn-light-bevel) rgb(0,173,230);
-}
-
-.btn-respawn.bevel_green:hover,
-.btn-respawn.bevel_red:hover,
-.btn-respawn.bevel_blue:hover {
-	box-shadow: .15em .15em 0 rgba(0, 0, 0,.3), inset -0.1em -0.1em 0.1em rgba(0, 0 , 0, .1), inset 0.1em 0.1em 0.1em rgba(0, 0 , 0, .1);
-}
-
-.btn-respawn i {
-    font-size: .9em;
-    margin-right: 0.3em;
-}
-
-.btn-respawn  .fa-flag {
-	font-size: 2em;
-}
-
-.pause-screen-btn-spectate {
-	position: absolute;
-	bottom: var(--ss-space-lg);
-	left: var(--ss-space-lg);
-	margin: 0;
-	min-width: auto;
-    border-radius: 100%;
-    width: 4em;
-    height: 4em;
-    text-align: center;
-    padding: 0;
-	box-shadow: .15em .15em 0 rgba(0, 0, 0,.3), var(--ss-btn-dark-bevel) rgb(8,110,141), var(--ss-btn-light-bevel) rgb(0,173,230) !important;
-}
-.btn_team_switch {
-    max-width: 7.5em;
-	line-height: 1;
-}
-
-.btn_team_switch .team-switch-text {
-    white-space: normal;
-}
-
-.btn_team_switch i {
+.btn__team_switch i {
 	font-style: italic;
-}
-.btn_team_switch span {
-	display: block;
 }
 
 /* ----------------------------------------------------------------- poki stuff -- */
@@ -1852,4 +1418,35 @@ body > #shellshockers_respawn_banner-new > div{
 
 .w-shrinkauto {
 	flex: 1 0 auto;
+}
+
+@media only screen and (max-width: 1330px)  {
+	.pause-popup--container {
+		margin-top: 5em
+	}
+	.respawn-one {
+		grid-column: 1 / span 3;
+		margin: 0 auto;
+	}
+}
+
+@media only screen and (max-width: 922px)  {
+	.pause-popup--container {
+		/* This will correct the some impression issues but it also covers the player list */
+		grid-template-columns: 9.5em auto 35em;
+	}
+}
+
+/* CrazyGames */
+@media only screen and (max-width: 923px) and (min-height: 486px)  {
+	.pause-popup--container {
+		grid-template-columns: 9.5em auto 35em;
+	}
+}
+
+/* CrazyGames */
+@media only screen and (max-width: 939px) and (min-height: 502px)  {
+	.pause-popup--container {
+		grid-template-columns: 9.5em auto 35em;
+	}
 }
