@@ -6,7 +6,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-image: linear-gradient(315deg, rgb(241, 138, 242) 0.00%,rgb(222, 0, 0) 100.00%);
+  background-image: linear-gradient(to right, #f1f2b5 0%, #135058 100%);
 }
 .index-link {
   display: contents;
@@ -79,8 +79,9 @@
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
 .index-button {
-  top: 56px;
-  right: 3px;
+  top: 58px;
+  left: 1265px;
+  width: 335px;
   height: 81px;
   display: flex;
   position: absolute;
@@ -118,17 +119,6 @@
   text-decoration: none;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
-.index-date-time {
-  top: -7px;
-  flex: 1;
-  left: 1px;
-  color: var(--dl-color-gray-white);
-  width: var(--dl-size-size-maxwidth);
-  height: var(--dl-size-size-medium);
-  position: absolute;
-  font-size: 35px;
-  text-transform: capitalize;
-}
 @media(max-width: 479px) {
   .index-text {
     font-size: 30px;
@@ -139,31 +129,10 @@
   }
   .index-text02 {
     font-size: 40px;
-  }
-  .index-text03 {
-    font-size: 20px;
-  }
-  .index-text04 {
-    font-size: 20px;
-  }
-  .index-text05 {
-    font-size: 20px;
-  }
-  .index-text06 {
-    font-size: 20px;
+    font-weight: 800;
   }
   .index-link1 {
-    font-size: 20px;
     text-decoration: underline;
-  }
-  .index-text07 {
-    font-size: 20px;
-  }
-  .index-text08 {
-    font-size: 20px;
-  }
-  .index-text09 {
-    font-size: 20px;
   }
   .index-navlink {
     top: 80px;
@@ -212,11 +181,5 @@
     font-weight: 700;
     text-decoration: none;
     background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
-  }
-  .index-date-time {
-    top: 521px;
-    left: 28px;
-    text-align: left;
-    font-family: Exo 2;
   }
 }
