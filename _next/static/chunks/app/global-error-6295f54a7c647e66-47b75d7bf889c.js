@@ -1,0 +1,1 @@
+No Content: https://bestdosgames.com/_next/static/chunks/app/global-error-6295f54a7c647e66.js
