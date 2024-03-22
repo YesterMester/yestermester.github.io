@@ -3,9 +3,9 @@
     "background_color": "#000000",
     "display": "standalone",
     "scope": "/",
-    "start_url": "https://bestdosgames.com",
-    "name": "bestDOSgames.com",
-    "short_name": "bestDOSgames.com",
+    "start_url": "https://yestermester.github.io",
+    "name": "https://yestermester.github.io",
+    "short_name": "yesterubg",
     "icons": [
         {
             "src": "/android-icon-36x36.png",
