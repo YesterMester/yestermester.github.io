@@ -9,16 +9,12 @@
   background-image: linear-gradient(to right, #bdc3c7 0%, #2c3e50 100%);
 }
 .eindex-text {
-  top: 220px;
-  left: 805px;
-  margin: auto;
-  position: absolute;
   font-size: 50px;
   border-color: var(--dl-color-gray-black);
   border-style: ridge;
   border-width: 5px;
 }
-.eindex-navlink {
+.eindex-link {
   top: 161px;
   left: 215px;
   margin: auto;
@@ -29,7 +25,7 @@
   border-width: 5px;
   text-decoration: none;
 }
-.eindex-link {
+.eindex-link1 {
   top: 238px;
   left: 27px;
   margin: auto;
@@ -42,7 +38,7 @@
   border-width: 5px;
   text-decoration: none;
 }
-.eindex-navlink1 {
+.eindex-link2 {
   top: 161px;
   left: 28px;
   margin: auto;
@@ -62,28 +58,28 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.eindex-navlink2 {
+.eindex-navlink {
   font-size: 45px;
   padding-top: var(--dl-space-space-halfunit);
   border-width: 3px;
   text-decoration: none;
   background-color: transparent;
 }
-.eindex-navlink3 {
+.eindex-navlink1 {
   font-size: 45px;
   padding-top: var(--dl-space-space-halfunit);
   border-width: 3px;
   text-decoration: none;
   background-color: transparent;
 }
-.eindex-link1 {
+.eindex-link3 {
   font-size: 45px;
   padding-top: var(--dl-space-space-halfunit);
   border-width: 3px;
   text-decoration: none;
   background-color: transparent;
 }
-.eindex-link2 {
+.eindex-link4 {
   font-size: 30px;
   padding-top: var(--dl-space-space-halfunit);
   border-width: 3px;
@@ -93,7 +89,7 @@
 .eindex-text05 {
   font-size: 45px;
 }
-.eindex-link3 {
+.eindex-link5 {
   font-size: 45px;
   padding-top: var(--dl-space-space-halfunit);
   border-width: 3px;
@@ -101,12 +97,9 @@
   background-color: transparent;
 }
 .eindex-text08 {
-  top: 715px;
-  left: 500px;
-  position: absolute;
   font-size: 30px;
 }
-.eindex-link4 {
+.eindex-link6 {
   display: contents;
 }
 .eindex-text09 {
@@ -127,13 +120,13 @@
   }
 }
 @media(max-width: 479px) {
-  .eindex-link {
+  .eindex-link1 {
     top: 83px;
     right: -5px;
     font-size: 50px;
     font-weight: 700;
   }
-  .eindex-link3 {
+  .eindex-link5 {
     width: 479px;
     height: 105px;
   }
