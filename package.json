@@ -1,10 +1,56 @@
 {
-  "name": "yestersubg",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "parcel-bundler": "^1.6.1"
+  "name": "grunt-gh-pages",
+  "description": "Publish to GitHub Pages with Grunt.",
+  "version": "4.0.0",
+  "homepage": "https://github.com/tschaub/grunt-gh-pages",
+  "author": "Tim Schaub (http://tschaub.net/)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tschaub/grunt-gh-pages.git"
   },
-  "scripts": {},
-  "devDependencies": {}
+  "bugs": {
+    "url": "https://github.com/tschaub/grunt-gh-pages/issues"
+  },
+  "license": "MIT",
+  "main": "tasks/gh-pages.js",
+  "scripts": {
+    "eslint": "eslint .",
+    "pretest": "npm run eslint",
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "fs-extra": "^8.1.0",
+    "graceful-fs": "^4.2.3",
+    "url-safe": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-tschaub": "^13.1.0",
+    "grunt": "^1.0.3",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-mocha-test": "^0.13.3",
+    "mocha": "^7.1.1",
+    "tmp": "^0.1.0"
+  },
+  "peerDependencies": {
+    "grunt": ">=0.4.0"
+  },
+  "eslintConfig": {
+    "extends": "tschaub"
+  },
+  "keywords": [
+    "gruntplugin",
+    "git",
+    "grunt",
+    "gh-pages",
+    "github"
+  ],
+  "files": [
+    "{lib,tasks}/*.js"
+  ],
+  "engines": {
+    "node": ">=6"
+  }
 }
