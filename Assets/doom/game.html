@@ -1,0 +1,425 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="msvalidate.01" content="FDBF1B0FB2E26D95DC5CB8F9ACCB9CE6" />
+<title>Ultimate Doom &laquo;  XTDOS | Play Retro DOS Games Online</title>
+<meta name="description" content="XTDOS is a website to play Classic dos games online using dosbox directly in your browser.">
+<meta name="keywords" content="dosbox, dos, warcraft, Command & Conquer, Ultima Underworld, doom, Amiga, blood, SimCity, commander keen, prince of persia, Wolfenstein 3D, Dangerous Dave, pacman, ">
+
+<meta property="og:image" content="http://www.xtdos.com/thumbs/udoom.jpg" />
+
+<link rel="stylesheet" href="https://www.xtdos.com/wp-content/themes/gameclub/style.css" type="text/css" media="screen" />
+<link rel="pingback" href="https://www.xtdos.com/xmlrpc.php" />
+
+
+
+<link rel="shortcut icon" href="https://www.xtdos.com/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://www.xtdos.com/favicon.ico" type="image/x-icon">
+
+
+<script src="https://www.xtdos.com/wp-content/themes/gameclub/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://www.xtdos.com/wp-content/themes/gameclub/js/stepcarousel.js"></script>
+<script type="text/javascript">
+/* Modified to support Opera */
+function bookmarksite(title,url){
+if (window.sidebar) // firefox
+	window.sidebar.addPanel(title, url, "");
+else if(window.opera && window.print){ // opera
+	var elem = document.createElement('a');
+	elem.setAttribute('href',url);
+	elem.setAttribute('title',title);
+	elem.setAttribute('rel','sidebar');
+	elem.click();
+} 
+else if(document.all)// ie
+	window.external.AddFavorite(url, title);
+}
+</script>
+
+
+
+
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" type="application/rss+xml" title="XTDOS | Play Retro DOS Games Online &raquo; Ultimate Doom Comments Feed" href="https://www.xtdos.com/ultimate-doom/feed" />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.xtdos.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.1.5"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css' href="https://www.xtdos.com/wp-includes/css/dist/block-library/style.min.css?ver=6.1.5" type='text/css' media='all' />
+<link rel='stylesheet' id='classic-theme-styles-css' href="https://www.xtdos.com/wp-includes/css/classic-themes.min.css?ver=1" type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='wp-postratings-css' href="https://www.xtdos.com/wp-content/plugins/wp-postratings/postratings-css.css?ver=1.63" type='text/css' media='all' />
+<script type='text/javascript' src="https://www.xtdos.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.1" id='jquery-core-js'></script>
+<script type='text/javascript' src="https://www.xtdos.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://www.xtdos.com/wp-json/" /><link rel="alternate" type="application/json" href="https://www.xtdos.com/wp-json/wp/v2/posts/1444" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.xtdos.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.xtdos.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.1.5" />
+<link rel="canonical" href="https://www.xtdos.com/ultimate-doom" />
+<link rel='shortlink' href="https://www.xtdos.com/?p=1444" />
+<link rel="alternate" type="application/json+oembed" href="https://www.xtdos.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.xtdos.com%2Fultimate-doom" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.xtdos.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.xtdos.com%2Fultimate-doom&#038;format=xml" />
+</head>
+
+<body>
+<div class='social-buttons button-right hidden-phone hidden-tablet'>
+<a class='itemsocial' href='http://www.snesfun.com' id='SNES-btn' target='_blank'><span class='social-icon'><span class='social-text'>SNES</span></span></a>
+<a class='itemsocial' href='http://www.gbafun.com' id='GBA-btn' target='_blank'><span class='social-icon'><span class='social-text'>Gameboy Advance</span></span></a>
+<a class='itemsocial' href='http://www.8bbit.com' id='Genesis-btn' target='_blank'><span class='social-icon'><span class='social-text'>NES</span></span></a>
+<a class='itemsocial' href='http://www.ssega.com' id='DOS-btn' target='_blank'><span class='social-icon'><span class='social-text'>SEGA Genesis</span></span></a>
+
+
+<a class='itemsocial' href='http://www.tgx16.com' id='TG16-btn' target='_blank'><span class='social-icon'><span class='social-text'>TurboGrafx 16</span></span></a>
+<a class='itemsocial' href='http://www.retrosega.com' id='SMS-btn' target='_blank'><span class='social-icon'><span class='social-text'>SEGA SMS/GG</span></span></a>
+<a class='itemsocial' href='http://www.jamsx.com' id='MSX-btn' target='_blank'><span class='social-icon'><span class='social-text'>MSX</span></span></a>
+
+</div>
+
+<div id="main">
+<div id="foxmenucontainer">
+<div id="menu">
+		<ul>
+			<li><a href="https://www.xtdos.com">Home</a></li>
+		
+			<li><li class="page_item page-item-4"><a href="https://www.xtdos.com/contact-us">Contact Us</a></li>
+<li class="page_item page-item-1658"><a href="https://www.xtdos.com/help">Help!</a></li>
+		   
+			<div align="right">
+				<a href="https://www.facebook.com/pages/Classic-Games-Online/109669682428499"><img src="https://www.xtdos.com/wp-content/themes/gameclub/images/fb.png"></a>
+			</div>	
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+<div id="header">
+	<div class="logo">
+		<a href="https://www.xtdos.com/"><img src="https://www.xtdos.com/wp-content/themes/gameclub/images/logo.png" alt="XTDOS | Play Retro DOS Games Online" /></a>
+	</div>
+	<div class="topright">
+
+		<div class="search">
+						<div style="padding: 0 0 0 0";>
+			<form method="get" id="searchbox" action="https://www.xtdos.com/">
+				
+					<input id="search" type="text" placeholder="Search for Games..." name="s"  onclick="this.value='';" />
+					<input id="submit" type="submit" value="search" />
+				
+			</form>
+
+		</div>		</div>
+	</div>
+</div><div id="contenttop">
+		<div class="breadcrump">
+			<a href="https://www.xtdos.com">Home</a> &raquo; <a href="https://www.xtdos.com/category/action" rel="category tag">Action</a> & <a href="https://www.xtdos.com/category/adventure" rel="category tag">Adventure</a> & <a href="https://www.xtdos.com/category/fps" rel="category tag">FPS</a> &raquo; Ultimate Doom		</div>
+</div>
+
+<div id="content">
+
+
+
+<div class="sidebar_left">
+
+		
+		
+
+	<ul><li id="categories-2" class="widget widget_categories"><h3 class="widgettitle">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-3"><a href="https://www.xtdos.com/category/action">Action</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://www.xtdos.com/category/adventure">Adventure</a>
+</li>
+	<li class="cat-item cat-item-689"><a href="https://www.xtdos.com/category/fighting">Fighting</a>
+</li>
+	<li class="cat-item cat-item-2502"><a href="https://www.xtdos.com/category/fps">FPS</a>
+</li>
+	<li class="cat-item cat-item-75"><a href="https://www.xtdos.com/category/puzzle">Puzzle</a>
+</li>
+	<li class="cat-item cat-item-209"><a href="https://www.xtdos.com/category/racing">Racing</a>
+</li>
+	<li class="cat-item cat-item-1059"><a href="https://www.xtdos.com/category/rpg">RPG</a>
+</li>
+	<li class="cat-item cat-item-1002"><a href="https://www.xtdos.com/category/simulation">Simulation</a>
+</li>
+	<li class="cat-item cat-item-2497"><a href="https://www.xtdos.com/category/strategy">Strategy</a>
+</li>
+			</ul>
+
+			</li></ul><ul><li id="who-is-online" class="widget who_is_online_widget"><h3 class="widgettitle">Who's Online</h3><ul><li>0 Members.</li><li>54 Guests.</li></ul></li></ul>	
+		<ul class="widget_catagories">
+		<li><h3>Advertisement</h3>
+<center><script type="text/javascript"><!--
+google_ad_client = "ca-pub-1208865754835756";
+/* virtical left */
+google_ad_slot = "4958148396";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></center>
+</br>
+
+			</ul>
+		</li>
+		</ul>
+		
+</div>
+<div class="postsbody">
+
+<div class="inads">	
+	<h3>Advertisement</h3>
+						<div class="posttop"></div>
+	<div class="adsa">
+		<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1208865754835756";
+/* xtdostop */
+google_ad_slot = "0392155760";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>	</div>
+				
+		</div>
+	<br><br/>
+		
+	<div class="pages">
+	
+		<div class="rateit">
+		<div id="post-ratings-1444" class="post-ratings" itemscope itemtype="http://schema.org/Article" data-nonce="d26bb5d5e2"><img id="rating_1444_1" src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="1 Star" title="1 Star" onmouseover="current_rating(1444, 1, '1 Star');" onmouseout="ratings_off(4.6, 5, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" /><img id="rating_1444_2" src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="2 Stars" title="2 Stars" onmouseover="current_rating(1444, 2, '2 Stars');" onmouseout="ratings_off(4.6, 5, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" /><img id="rating_1444_3" src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="3 Stars" title="3 Stars" onmouseover="current_rating(1444, 3, '3 Stars');" onmouseout="ratings_off(4.6, 5, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" /><img id="rating_1444_4" src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 Stars" title="4 Stars" onmouseover="current_rating(1444, 4, '4 Stars');" onmouseout="ratings_off(4.6, 5, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" /><img id="rating_1444_5" src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" alt="5 Stars" title="5 Stars" onmouseover="current_rating(1444, 5, '5 Stars');" onmouseout="ratings_off(4.6, 5, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" /> (<strong>83</strong> votes)<meta itemprop="name" content="Ultimate Doom" /><meta itemprop="description" content="" /><meta itemprop="url" content="http://www.xtdos.com/ultimate-doom" /><div style="display: none;" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><meta itemprop="bestRating" content="5" /><meta itemprop="ratingValue" content="4.58" /><meta itemprop="ratingCount" content="83" /></div></div>
+<div id="post-ratings-1444-loading"  class="post-ratings-loading"><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/loading.gif" width="16" height="16" alt="Loading ..." title="Loading ..." class="post-ratings-image" />&nbsp;Loading ...</div>
+		</div>
+		<h2>  Ultimate Doom</h2>
+		
+	<table align="center">
+	<tr></tr>
+	</table>	
+	
+		<div class="playgame">
+
+<center>
+<br/>
+
+	
+<div id="status"></div>
+
+
+
+
+	<div id="toggleText" style="  width: 640px; border-style:solid; border-width:2px; border-color:#212020;">
+	
+							<canvas id="canvas" style="width: 50%; height: 50%; display: block; margin: 0 auto;"/>
+    <script type="text/javascript" src="/es6-promise.js"></script>
+    <script type="text/javascript" src="/browserfs.js"></script>
+    <script type="text/javascript" src="/loader.js"></script>
+    <script type="text/javascript">
+	
+      var emulator = new Emulator(document.querySelector("#canvas"),
+                                  null,
+                                  new DosBoxLoader(DosBoxLoader.emulatorJS("/emulators/em-dosbox/dosbox.js"),
+                                                   DosBoxLoader.locateAdditionalEmulatorJS(locateAdditionalFiles),
+                                                   DosBoxLoader.nativeResolution(640, 480),
+                                                   DosBoxLoader.mountZip("c",
+                                                                         DosBoxLoader.fetchFile("Game File",
+                                                                                                "/fsroms/udoom.zip" )),
+                                                   DosBoxLoader.startExe("autorun.bat")))
+      emulator.start({ waitAfterDownloading: true });
+
+      function locateAdditionalFiles(filename) {
+        if (filename === "dosbox.html.mem") {
+          return "emulators/em-dosbox/dosbox-sync.mem";
+        }
+        return "emulators/em-dosbox/"+ filename;
+      }
+	  
+    </script>
+		
+	</canvas> 
+					
+					
+	
+	
+</div>
+<button id="gofullscreen" onclick="emulator.requestFullScreen()">Fullscreen</button>
+</center>
+</br><br/>
+   </div>
+	
+
+	
+
+	
+		</div>
+	<div class="inads">	
+	<h3>Advertisement</h3>
+						<div class="posttop"></div>
+	<div class="adsa">
+		<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1208865754835756";
+/* xtdostop */
+google_ad_slot = "0392155760";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>	</div>
+				
+		</div>
+	<br><br/>
+	<div id="similargame">
+		<h3>Random Games</h3>
+		<div class="randgames">
+						<div class="wtbgame2">
+											<a href="https://www.xtdos.com/arya-vaiv" title="Arya Vaiv"><img src="https://www.xtdos.com/thumbs/aryav.jpg" width="142" height="118" alt="Arya Vaiv"></a>
+										<a href="https://www.xtdos.com/arya-vaiv" title="Arya Vaiv">Arya Vaiv</a>
+				</div>	
+						<div class="wtbgame2">
+											<a href="https://www.xtdos.com/golden-axe" title="Golden Axe"><img src="https://www.xtdos.com/thumbs/goldena.jpg" width="142" height="118" alt="Golden Axe"></a>
+										<a href="https://www.xtdos.com/golden-axe" title="Golden Axe">Golden Axe</a>
+				</div>	
+						<div class="wtbgame2">
+											<a href="https://www.xtdos.com/kens-labyrinth" title="Ken&#8217;s Labyrinth"><img src="https://www.xtdos.com/thumbs/kensl.png" width="142" height="118" alt="Ken&#8217;s Labyrinth"></a>
+										<a href="https://www.xtdos.com/kens-labyrinth" title="Ken&#8217;s Labyrinth">Ken&#8217;s La ...</a>
+				</div>	
+						<div class="wtbgame2">
+											<a href="https://www.xtdos.com/baron-baldric-a-grave-adventure" title="Baron Baldric : A Grave Adventure"><img src="https://www.xtdos.com/thumbs/baronb.jpg" width="142" height="118" alt="Baron Baldric : A Grave Adventure"></a>
+										<a href="https://www.xtdos.com/baron-baldric-a-grave-adventure" title="Baron Baldric : A Grave Adventure">Baron Baldric  ...</a>
+				</div>	
+						<div class="wtbgame2">
+											<a href="https://www.xtdos.com/bombuzal" title="Bombuzal"><img src="https://www.xtdos.com/thumbs/bombz.jpg" width="142" height="118" alt="Bombuzal"></a>
+										<a href="https://www.xtdos.com/bombuzal" title="Bombuzal">Bombuzal</a>
+				</div>	
+						<div class="wtbgame2">
+											<a href="https://www.xtdos.com/major-stryker" title="Major Stryker"><img src="https://www.xtdos.com/thumbs/majors.jpg" width="142" height="118" alt="Major Stryker"></a>
+										<a href="https://www.xtdos.com/major-stryker" title="Major Stryker">Major Stryker</a>
+				</div>	
+						<div class="wtbgame2">
+											<a href="https://www.xtdos.com/galactic-warrior-rats" title="Galactic Warrior Rats"><img src="https://www.xtdos.com/thumbs/gwrats.jpg" width="142" height="118" alt="Galactic Warrior Rats"></a>
+										<a href="https://www.xtdos.com/galactic-warrior-rats" title="Galactic Warrior Rats">Galactic Warri ...</a>
+				</div>	
+						<div class="wtbgame2">
+											<a href="https://www.xtdos.com/loopz" title="Loopz"><img src="https://www.xtdos.com/thumbs/loopz.jpg" width="142" height="118" alt="Loopz"></a>
+										<a href="https://www.xtdos.com/loopz" title="Loopz">Loopz</a>
+				</div>	
+				</div>
+		</div>
+		
+		
+		
+	</div>	
+
+		
+		
+</div>
+
+</div>
+
+
+</div>
+<div id="footer">
+	<div class="foot">
+		<ul>
+		<li><h3>Most Played Games</h3>
+						<ul>
+			<li><a href="https://www.xtdos.com/volfied" title="Volfied">Volfied</a> - 1,062,335 views</li><li><a href="https://www.xtdos.com/warcraft-ii-tides-of-darkness" title="Warcraft II: Tides of Darkness">Warcraft II: Tides of Darkness</a> - 491,397 views</li><li><a href="https://www.xtdos.com/doom-ii-hell-on-earth" title="DOOM II: Hell on Earth">DOOM II: Hell on Earth</a> - 347,310 views</li><li><a href="https://www.xtdos.com/duke-nukem-3d" title="Duke Nukem 3D">Duke Nukem 3D</a> - 273,376 views</li><li><a href="https://www.xtdos.com/prehistorik-2" title="Prehistorik 2">Prehistorik 2</a> - 168,676 views</li>			</ul>
+			 
+		</li>
+		</ul>
+	</div>
+	<div class="foot">
+		<ul>
+		<li><h3>Highest Rated Games</h3>
+							<ul>
+				<li><a href="https://www.xtdos.com/conan-the-cimmerian" title="Conan: The Cimmerian">Conan: The Cimmerian</a> <img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="6 votes, average: 5.00 out of 5" title="6 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="6 votes, average: 5.00 out of 5" title="6 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="6 votes, average: 5.00 out of 5" title="6 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="6 votes, average: 5.00 out of 5" title="6 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="6 votes, average: 5.00 out of 5" title="6 votes, average: 5.00 out of 5" class="post-ratings-image" /> (5.00)</li>
+<li><a href="https://www.xtdos.com/tempest-2000" title="Tempest 2000">Tempest 2000</a> <img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /> (5.00)</li>
+<li><a href="https://www.xtdos.com/space-quest-iii-the-pirates-of-pestulon" title="Space Quest III: The Pirates of Pestulon">Space Quest III: The Pirates of Pestulon</a> <img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /> (5.00)</li>
+<li><a href="https://www.xtdos.com/blake-stone-aliens-of-gold-2" title="Blake Stone: Aliens of Gold">Blake Stone: Aliens of Gold</a> <img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="4 votes, average: 5.00 out of 5" title="4 votes, average: 5.00 out of 5" class="post-ratings-image" /> (5.00)</li>
+<li><a href="https://www.xtdos.com/champ-kong" title="CHAMP Kong">CHAMP Kong</a> <img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="3 votes, average: 5.00 out of 5" title="3 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="3 votes, average: 5.00 out of 5" title="3 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="3 votes, average: 5.00 out of 5" title="3 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="3 votes, average: 5.00 out of 5" title="3 votes, average: 5.00 out of 5" class="post-ratings-image" /><img src="https://www.xtdos.com/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" alt="3 votes, average: 5.00 out of 5" title="3 votes, average: 5.00 out of 5" class="post-ratings-image" /> (5.00)</li>
+				</ul>
+			 
+		</li>
+		</ul>
+	</div>
+	
+</div>
+<div id="credits">
+	<p>2011 &copy; <a href="https://www.xtdos.com/" title="XTDOS | Play Retro DOS Games Online">XTDOS | Play Retro DOS Games Online</a></p>
+<center><p> All Games are Copyrighted to their Respective Owners. </p>	</center>
+
+</div><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27311194-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><script type='text/javascript' id='wp-postratings-js-extra'>
+/* <![CDATA[ */
+var ratingsL10n = {"plugin_url":"http:\/\/www.xtdos.com\/wp-content\/plugins\/wp-postratings","ajax_url":"http:\/\/www.xtdos.com\/wp-admin\/admin-ajax.php","text_wait":"Please rate only 1 post at a time.","image":"stars_crystal","image_ext":"gif","max":"5","show_loading":"1","show_fading":"1","custom":"0"};
+var ratings_mouseover_image=new Image();ratings_mouseover_image.src=ratingsL10n.plugin_url+"/images/"+ratingsL10n.image+"/rating_over."+ratingsL10n.image_ext;;
+/* ]]> */
+</script>
+<script type='text/javascript' src="https://www.xtdos.com/wp-content/plugins/wp-postratings/postratings-js.js?ver=1.63" id='wp-postratings-js'></script>
+<!-- Floating Shit -->
+  
+  <script src="https://www.xtdos.com/wp-content/themes/gameclub/js/jquery-ui.min.js"></script>
+
+  <script>
+      jQuery(function () {
+          jQuery('.social-buttons .social-icon').mouseover(function(){
+            jQuery(this).stop();
+              jQuery(this).animate({
+                  width: '160'
+              }, 500, 'easeOutBounce', function () {});
+          });
+          jQuery('.social-buttons .social-icon').mouseout(function(){
+            jQuery(this).stop();
+              jQuery(this).animate({
+                  width: '43'
+              }, 500, 'easeOutBounce', function () {});
+          });
+      });
+  </script>
+<!-- End Floating Shit -->
+
+</body>
+</html>
+
+
+
+
+
