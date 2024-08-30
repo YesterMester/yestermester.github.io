@@ -1,4 +1,4 @@
-.privacy-policy-container {
+.privacy-policy-container1 {
   width: 100%;
   display: flex;
   overflow: auto;
@@ -11,10 +11,9 @@
 .privacy-policy-link {
   display: contents;
 }
-.privacy-policy-text {
-  top: 0px;
-  left: 0px;
-  right: 0px;
+.privacy-policy-text10 {
+  top: 9px;
+  right: 13px;
   width: 558px;
   height: 78px;
   margin: auto;
@@ -26,8 +25,16 @@
   border-radius: 25px;
   text-decoration: none;
 }
+@media(max-width: 1200px) {
+  .privacy-policy-text10 {
+    width: 307px;
+    height: 47px;
+    font-size: 40px;
+    text-decoration: none;
+  }
+}
 @media(max-width: 479px) {
-  .privacy-policy-text {
+  .privacy-policy-text10 {
     top: 7px;
     left: 255px;
     right: var(--dl-space-space-unit);

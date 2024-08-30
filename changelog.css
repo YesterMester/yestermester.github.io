@@ -1,0 +1,39 @@
+.changelog-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  background-image: radial-gradient(circle at center, rgb(189, 195, 199) 0.00%,rgb(167, 87, 238) 100.00%);
+}
+.changelog-text10 {
+  font-size: 70px;
+  align-self: center;
+}
+.changelog-text11 {
+  font-size: 70px;
+}
+.changelog-text15 {
+  font-size: 40px;
+}
+.changelog-text16 {
+  font-style: normal;
+  font-weight: 500;
+}
+.changelog-text17 {
+  font-style: normal;
+  font-weight: 500;
+}
+.changelog-text18 {
+  font-style: normal;
+  font-weight: 500;
+}
+.changelog-text19 {
+  font-style: normal;
+  font-weight: 500;
+}
+.changelog-text20 {
+  font-style: normal;
+  font-weight: 500;
+}

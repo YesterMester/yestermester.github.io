@@ -5,34 +5,13 @@
   min-height: 100vh;
   align-items: flex-end;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 0.00%,rgba(0, 0, 0, 0.8) 100.00%);
 }
-.gnext-pg-button {
-  top: 56px;
-  left: 1028px;
-  height: 81px;
-  display: flex;
-  position: absolute;
-  font-size: 70px;
-  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
-  text-align: center;
-  font-family: "Courier New";
-  border-style: ridge;
-  border-width: 2px;
-  border-radius: 300px;
-  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
-}
-.gnext-pg-navlink {
-  font-style: italic;
-  font-family: "Courier New";
-  font-weight: 700;
-  text-decoration: none;
-}
-.gnext-pg-link {
+.gnext-pg-link1 {
   display: contents;
 }
-.gnext-pg-text2 {
+.gnext-pg-text1 {
   top: 26px;
   left: 21px;
   position: absolute;
@@ -44,8 +23,8 @@
   text-decoration: none;
 }
 .gnext-pg-navlink1 {
-  top: 57px;
-  left: 766px;
+  top: 374px;
+  left: 381px;
   height: 81px;
   display: flex;
   position: absolute;
@@ -82,26 +61,6 @@
 .gnext-pg-navlink2 {
   text-decoration: none;
 }
-.gnext-pg-link1 {
-  top: 280px;
-  left: 2px;
-  color: var(--dl-color-gray-black);
-  width: 709px;
-  height: 81px;
-  display: flex;
-  position: absolute;
-  font-size: 70px;
-  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
-  font-style: italic;
-  text-align: center;
-  font-family: "Courier New";
-  font-weight: 700;
-  border-style: ridge;
-  border-width: 2px;
-  border-radius: 300px;
-  text-decoration: none;
-  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
-}
 .gnext-pg-link2 {
   top: 174px;
   left: 458px;
@@ -121,8 +80,104 @@
   text-decoration: none;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
+.gnext-pg-button2 {
+  top: 381px;
+  left: 30px;
+  height: 81px;
+  display: flex;
+  position: absolute;
+  font-size: 70px;
+  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+  text-align: center;
+  font-family: "Courier New";
+  border-style: ridge;
+  border-width: 2px;
+  border-radius: 300px;
+  flex-direction: row;
+  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+}
+.gnext-pg-navlink3 {
+  font-style: italic;
+  font-family: "Courier New";
+  font-weight: 700;
+  text-decoration: none;
+}
+.gnext-pg-link3 {
+  top: 280px;
+  left: 2px;
+  color: var(--dl-color-gray-black);
+  width: 728px;
+  height: 81px;
+  display: flex;
+  position: absolute;
+  font-size: 70px;
+  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+  font-style: italic;
+  text-align: center;
+  font-family: "Courier New";
+  font-weight: 700;
+  border-style: ridge;
+  border-width: 2px;
+  border-radius: 300px;
+  text-decoration: none;
+  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+}
+@media(max-width: 1600px) {
+  .gnext-pg-link2 {
+    top: 173px;
+    left: 481px;
+  }
+  .gnext-pg-link3 {
+    width: 728px;
+  }
+}
+@media(max-width: 1200px) {
+  .gnext-pg-button2 {
+    top: 377px;
+    left: 9px;
+    width: 344px;
+    height: 84px;
+    padding-left: var(--dl-space-space-unit);
+  }
+}
+@media(max-width: 767px) {
+  .gnext-pg-text1 {
+    font-size: 60px;
+    text-decoration: none;
+  }
+  .gnext-pg-navlink1 {
+    top: 619px;
+    left: 14px;
+  }
+  .gnext-pg-button1 {
+    top: 307px;
+    left: 2px;
+  }
+  .gnext-pg-link2 {
+    top: 410px;
+    left: 8px;
+  }
+  .gnext-pg-button2 {
+    top: 514px;
+    left: 5px;
+  }
+  .gnext-pg-link3 {
+    top: 209px;
+    left: 0px;
+    color: var(--dl-color-gray-black);
+    width: 520px;
+    height: 69px;
+    font-size: 50px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
+}
 @media(max-width: 479px) {
-  .gnext-pg-text2 {
+  .gnext-pg-text1 {
     font-size: 30px;
     text-decoration: none;
   }
@@ -135,12 +190,11 @@
     font-size: 35px;
     text-decoration: none;
   }
-  .gnext-pg-link1 {
-    top: 159px;
-    left: -1px;
-    color: var(--dl-color-gray-black);
-    width: 378px;
-    height: 49px;
+  .gnext-pg-link2 {
+    top: 99px;
+    left: 235px;
+    width: 138px;
+    height: 51px;
     font-size: 35px;
     box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
     font-style: italic;
@@ -149,11 +203,12 @@
     text-decoration: none;
     background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
   }
-  .gnext-pg-link2 {
-    top: 99px;
-    left: 235px;
-    width: 138px;
-    height: 51px;
+  .gnext-pg-link3 {
+    top: 159px;
+    left: -1px;
+    color: var(--dl-color-gray-black);
+    width: 378px;
+    height: 49px;
     font-size: 35px;
     box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
     font-style: italic;

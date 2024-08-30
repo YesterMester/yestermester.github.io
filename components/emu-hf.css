@@ -1,0 +1,21 @@
+.emu-hf-container {
+  width: 437px;
+  height: 117px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+.emu-hf-link1 {
+  font-family: "Exo 2";
+  border-width: 3px;
+  text-decoration: none;
+  background-color: transparent;
+}
+.emu-hf-link2 {
+  font-family: "Exo 2";
+  border-width: 3px;
+  text-decoration: none;
+  background-color: transparent;
+}
