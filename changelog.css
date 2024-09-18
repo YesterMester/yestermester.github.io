@@ -11,9 +11,6 @@
   font-size: 70px;
   align-self: center;
 }
-.changelog-text11 {
-  font-size: 70px;
-}
 .changelog-text15 {
   font-size: 40px;
 }
@@ -36,4 +33,9 @@
 .changelog-text20 {
   font-style: normal;
   font-weight: 500;
+}
+@media(max-width: 1600px) {
+  .changelog-text11 {
+    font-size: 70px;
+  }
 }
