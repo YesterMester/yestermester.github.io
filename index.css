@@ -3,14 +3,16 @@
   display: flex;
   overflow: auto;
   min-height: 100vh;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   background-image: linear-gradient(to right, #f1f2b5 0%, #135058 100%);
 }
+ 
 .index-link1 {
   display: contents;
 }
+ 
 .index-text10 {
   top: 26px;
   left: 21px;
@@ -22,27 +24,19 @@
   border-radius: 25px;
   text-decoration: none;
 }
+ 
 .index-text11 {
   top: 287px;
   left: 35px;
   position: absolute;
   font-size: 40px;
 }
-.index-text12 {
-  top: 361px;
-  left: 36px;
-  position: absolute;
-  font-size: 40px;
-  font-weight: 800;
-}
+ 
 .index-link2 {
-  text-decoration: underline;
-}
-.index-link3 {
   top: 175px;
-  left: var(--dl-space-space-halfunit);
+  left: var(--dl-layout-space-halfunit);
   color: var(--dl-color-gray-black);
-  right: var(--dl-space-space-halfunit);
+  right: var(--dl-layout-space-halfunit);
   width: 712px;
   height: 81px;
   display: flex;
@@ -55,12 +49,25 @@
   font-weight: 700;
   border-style: ridge;
   border-width: 2px;
-  margin-right: var(--dl-space-space-halfunit);
+  margin-right: var(--dl-layout-space-halfunit);
   border-radius: 300px;
   text-decoration: none;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
-.index-button {
+ 
+.index-text12 {
+  top: 361px;
+  left: 36px;
+  position: absolute;
+  font-size: 40px;
+  font-weight: 800;
+}
+ 
+.index-link3 {
+  text-decoration: underline;
+}
+ 
+.index-button1 {
   left: 5px;
   width: 335px;
   bottom: 35px;
@@ -77,12 +84,14 @@
   flex-direction: row;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
+ 
 .index-navlink1 {
   font-style: italic;
   font-family: "Courier New";
   font-weight: 700;
   text-decoration: none;
 }
+ 
 .index-navlink2 {
   left: 18px;
   bottom: 139px;
@@ -101,7 +110,8 @@
   text-decoration: none;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
-.index-navlink3 {
+ 
+.index-button2 {
   left: 370px;
   width: 407px;
   bottom: 33px;
@@ -111,14 +121,47 @@
   font-style: italic;
   font-family: "Courier New";
   font-weight: 700;
-  margin-right: var(--dl-space-space-twounits);
-  border-radius: var(--dl-radius-radius-radius2);
+  margin-right: var(--dl-layout-space-twounits);
+  border-radius: var(--dl-layout-radius-radius2);
+  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+}
+ 
+.index-link4 {
+  top: 42px;
+  left: 778px;
+  position: absolute;
+  font-size: 400%;
+  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+  font-style: italic;
+  font-family: "Courier New";
+  font-weight: 700;
   text-decoration: none;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
-.index-navlink4 {
-  top: 337px;
-  left: 151px;
+ 
+.index-button3 {
+  top: 189px;
+  left: 1205px;
+  width: 371px;
+  height: 65px;
+  display: flex;
+  position: absolute;
+  font-size: 300%;
+  box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+  font-style: italic;
+  text-align: center;
+  font-family: "Courier New";
+  font-weight: 700;
+  border-style: ridge;
+  border-width: 2px;
+  border-radius: 300px;
+  padding-right: 0px;
+  background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+}
+ 
+.index-navlink3 {
+  top: 340px;
+  left: 334px;
   width: 307px;
   height: 108px;
   display: flex;
@@ -136,34 +179,41 @@
   text-decoration: none;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
-.index-link4 {
-  top: 42px;
-  left: 778px;
+ 
+.index-button4 {
+  top: 190px;
+  left: 774px;
+  width: 417px;
+  height: 62px;
+  display: flex;
   position: absolute;
-  font-size: 400%;
+  font-size: 300%;
   box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
   font-style: italic;
+  text-align: center;
   font-family: "Courier New";
   font-weight: 700;
-  text-decoration: none;
+  border-style: ridge;
+  border-width: 2px;
+  border-radius: 300px;
+  padding-right: 0px;
   background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
 }
+ 
 @media(max-width: 1600px) {
   .index-text12 {
     font-size: 40px;
   }
-  .index-link2 {
+  .index-link3 {
     text-decoration: underline;
   }
-  .index-navlink4 {
-    top: 652px;
-    left: 6px;
-    font-size: 500%;
-    padding-bottom: var(--dl-space-space-halfunit);
+  .index-button2 {
+    left: 333px;
+    bottom: 126px;
   }
   .index-link4 {
-    top: 348px;
-    left: 164px;
+    top: 660px;
+    left: 340px;
     width: 884px;
     height: 83px;
     font-size: 500%;
@@ -174,7 +224,42 @@
     text-decoration: none;
     background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
   }
+  .index-button3 {
+    top: 115px;
+    left: 935px;
+    width: 236px;
+    height: 56px;
+    font-size: 30px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    padding-bottom: var(--dl-layout-space-halfunit);
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
+  .index-navlink3 {
+    top: 652px;
+    left: 6px;
+    font-size: 500%;
+    padding-bottom: var(--dl-layout-space-halfunit);
+  }
+  .index-button4 {
+    top: 176px;
+    left: 925px;
+    width: 257px;
+    height: 47px;
+    font-size: 30px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    padding-bottom: var(--dl-layout-space-halfunit);
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
 }
+ 
 @media(max-width: 1200px) {
   .index-navlink2 {
     left: 14px;
@@ -182,19 +267,30 @@
     bottom: 137px;
     height: 86px;
   }
-  .index-navlink4 {
-    top: 752px;
-    left: 335px;
+  .index-button3 {
+    top: 641px;
+    left: 24px;
+  }
+  .index-navlink3 {
+    top: 274px;
+    left: 407px;
+  }
+  .index-button4 {
+    top: 699px;
+    left: 20px;
+    font-size: 170%;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
   }
 }
+ 
 @media(max-width: 991px) {
-  .index-navlink4 {
-    left: 327px;
-    bottom: 150px;
-    padding-bottom: 0px;
-  }
   .index-link4 {
-    right: -50px;
+    top: 690px;
+    left: 327px;
     width: 549px;
     height: 74px;
     font-size: 300%;
@@ -205,20 +301,30 @@
     text-decoration: none;
     background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
   }
+  .index-button3 {
+    top: 287px;
+    left: 380px;
+    padding-bottom: 0px;
+  }
+  .index-navlink3 {
+    top: 665px;
+    left: 12px;
+    padding-bottom: 0px;
+  }
+  .index-button4 {
+    top: 362px;
+    left: 376px;
+    padding-bottom: 0px;
+  }
 }
+ 
 @media(max-width: 767px) {
   .index-text10 {
     height: 83px;
     font-size: 65px;
     text-decoration: none;
   }
-  .index-text12 {
-    font-size: 35px;
-  }
   .index-link2 {
-    text-decoration: underline;
-  }
-  .index-link3 {
     color: var(--dl-color-gray-black);
     width: 469px;
     height: 68px;
@@ -230,12 +336,18 @@
     text-decoration: none;
     background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
   }
+  .index-text12 {
+    font-size: 35px;
+  }
+  .index-link3 {
+    text-decoration: underline;
+  }
   .index-navlink2 {
     left: -1px;
     bottom: 130px;
     position: absolute;
   }
-  .index-navlink3 {
+  .index-button2 {
     left: 356px;
     width: 268px;
     bottom: 36px;
@@ -249,15 +361,24 @@
     text-decoration: none;
     background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
   }
-  .index-navlink4 {
-    right: 178px;
-    bottom: 127px;
-  }
   .index-link4 {
     top: 346px;
     left: 153px;
   }
+  .index-button3 {
+    top: 104px;
+    right: 27px;
+  }
+  .index-navlink3 {
+    right: 178px;
+    bottom: 127px;
+  }
+  .index-button4 {
+    top: 164px;
+    right: 52px;
+  }
 }
+ 
 @media(max-width: 479px) {
   .index-text10 {
     width: 238px;
@@ -268,14 +389,7 @@
   .index-text11 {
     font-size: 30px;
   }
-  .index-text12 {
-    font-size: 40px;
-    font-weight: 800;
-  }
   .index-link2 {
-    text-decoration: underline;
-  }
-  .index-link3 {
     top: 205px;
     left: 7px;
     color: var(--dl-color-gray-black);
@@ -289,7 +403,14 @@
     text-decoration: none;
     background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
   }
-  .index-button {
+  .index-text12 {
+    font-size: 40px;
+    font-weight: 800;
+  }
+  .index-link3 {
+    text-decoration: underline;
+  }
+  .index-button1 {
     top: 139px;
     left: 9px;
     width: 183px;
@@ -312,19 +433,7 @@
     text-decoration: none;
     background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
   }
-  .index-navlink3 {
-    top: 80px;
-    left: 20px;
-    height: 56px;
-    font-size: 35px;
-    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
-    font-style: italic;
-    font-family: Courier New;
-    font-weight: 700;
-    text-decoration: none;
-    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
-  }
-  .index-navlink4 {
+  .index-button2 {
     top: 80px;
     left: 20px;
     height: 56px;
@@ -339,6 +448,42 @@
   .index-link4 {
     top: 257px;
     left: 0px;
+    height: 56px;
+    font-size: 35px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
+  .index-button3 {
+    top: 80px;
+    left: 20px;
+    height: 56px;
+    font-size: 35px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
+  .index-navlink3 {
+    top: 80px;
+    left: 20px;
+    height: 56px;
+    font-size: 35px;
+    box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
+    font-style: italic;
+    font-family: Courier New;
+    font-weight: 700;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0%, rgb(53, 34, 172) 100%);
+  }
+  .index-button4 {
+    top: 80px;
+    left: 20px;
     height: 56px;
     font-size: 35px;
     box-shadow: rgb(134, 0, 0) 5px 7px 15px 3px;
