@@ -1,13 +1,11 @@
-// fixCanvas.js
 // ./Assets/starfield-universal.js
 (function () {
-  // Prevent double init
   if (window.__YUBG_STARFIELD_INIT__) return;
   window.__YUBG_STARFIELD_INIT__ = true;
 
   const START_PAGES = (window.YUBG_PAGE_ALLOWLIST || null);
   const shouldRunHere = () => {
-    if (!START_PAGES) return true; // run everywhere unless allowlist is provided
+    if (!START_PAGES) return true;
     const p = location.pathname.toLowerCase();
     return START_PAGES.some((frag) => p.includes(frag));
   };
@@ -15,31 +13,29 @@
   const start = () => {
     if (!shouldRunHere()) return;
 
-    // Keep page backgrounds transparent so the canvas shows above them
+    // Transparent background
     const styleEl = document.createElement("style");
     styleEl.setAttribute("data-yubg", "starfield");
     styleEl.textContent = `
       html, body { background: transparent !important; }
-      /* Try to neutralize common embed wrappers */
       [data-webstudio-embed], .webstudio-embed, .w-embed, [data-ws-embed] { background: transparent !important; }
     `;
     document.head.appendChild(styleEl);
 
-    // Remove any other star canvases injected by older code
+    // Remove older canvases
     document.querySelectorAll(
       'canvas[id*="star"], canvas[data-star], #star-canvas, #starfield-canvas'
     ).forEach((el) => { if (!el.hasAttribute('data-yubg')) el.remove(); });
 
-    // If we already mounted a host, stop
     if (document.getElementById("yubg-starfield-host")) return;
 
-    // Host holds the canvas + optional tint, sits behind everything, but above transparent body
+    // Host
     const host = document.createElement("div");
     host.id = "yubg-starfield-host";
     host.style.position = "fixed";
     host.style.inset = "0";
     host.style.pointerEvents = "none";
-    host.style.zIndex = "0"; // above transparent body background
+    host.style.zIndex = "0";
     document.body.prepend(host);
 
     // Canvas
@@ -51,7 +47,7 @@
     host.appendChild(cvs);
     const ctx = cvs.getContext("2d");
 
-    // Optional tint overlay: set window.YUBG_STAR_TINT = 'rgba(r,g,b,a)' before loading this script
+    // Optional tint
     const tint = window.YUBG_STAR_TINT || null;
     if (tint) {
       const tintEl = document.createElement("div");
@@ -62,7 +58,7 @@
       host.appendChild(tintEl);
     }
 
-    // Handle HiDPI correctly so stars stay crisp
+    // HiDPI scaling
     const DPR = () => Math.max(1, Math.min(2, window.devicePixelRatio || 1));
     function fit() {
       const w = window.innerWidth;
@@ -76,15 +72,35 @@
     fit();
     window.addEventListener("resize", fit);
 
-    // Generate stars
-    const COUNT = window.YUBG_STAR_COUNT || 220;
+    // ⭐ Star settings (DENSLY PACKED)
+    const COUNT = window.YUBG_STAR_COUNT || 450; // was 220 → now ~double for density
     const stars = Array.from({ length: COUNT }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
-      r: 0.5 + Math.random() * 1.6,
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
+      r: 0.5 + Math.random() * 1.4,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
     }));
+
+    // Shooting stars
+    const shootingStars = [];
+    function spawnShootingStar() {
+      const startX = Math.random() * window.innerWidth;
+      const startY = Math.random() * window.innerHeight * 0.4; // top half only
+      const length = 400 + Math.random() * 200;
+      shootingStars.push({
+        x: startX,
+        y: startY,
+        vx: -6 - Math.random() * 4,
+        vy: 2 + Math.random() * 2,
+        life: 0,
+        maxLife: 60 + Math.random() * 30,
+        length,
+      });
+    }
+    setInterval(() => {
+      if (Math.random() < 0.3) spawnShootingStar(); // more frequent
+    }, 3000);
 
     // Mouse repel
     const mouse = { x: null, y: null };
@@ -93,7 +109,7 @@
       mouse.y = e.clientY;
     });
 
-    // Keep body & html transparent if something tries to repaint white later
+    // Keep transparent
     const ensureTransparent = () => {
       const html = document.documentElement;
       const body = document.body;
@@ -103,7 +119,7 @@
     ensureTransparent();
     const bgKeepAlive = setInterval(ensureTransparent, 1000);
 
-    // If host gets removed by a re-render, re-attach it
+    // MutationObserver safety
     const mo = new MutationObserver(() => {
       if (!document.body.contains(host)) {
         document.body.prepend(host);
@@ -116,8 +132,8 @@
     function tick() {
       const w = window.innerWidth, h = window.innerHeight;
 
-      // Paint black space
-      ctx.fillStyle = "black";
+      // Trails fade — slower fade so dense stars "hang" longer
+      ctx.fillStyle = "rgba(0, 0, 0, 0.35)";
       ctx.fillRect(0, 0, w, h);
 
       // Stars
@@ -125,18 +141,16 @@
         s.x += s.vx;
         s.y += s.vy;
 
-        // gentle repel near cursor
         if (mouse.x != null) {
           const dx = s.x - mouse.x, dy = s.y - mouse.y;
           const d2 = dx * dx + dy * dy;
           if (d2 < 110 * 110) {
             const d = Math.sqrt(d2) || 1;
-            s.x += (dx / d) * 1.5;
-            s.y += (dy / d) * 1.5;
+            s.x += (dx / d) * 1.2;
+            s.y += (dy / d) * 1.2;
           }
         }
 
-        // wrap
         if (s.x < 0) s.x += w;
         if (s.x > w) s.x -= w;
         if (s.y < 0) s.y += h;
@@ -148,11 +162,36 @@
         ctx.fill();
       }
 
+      // Shooting stars
+      for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const sh = shootingStars[i];
+        sh.x += sh.vx;
+        sh.y += sh.vy;
+        sh.life++;
+
+        const alpha = 1 - sh.life / sh.maxLife;
+        if (alpha <= 0) {
+          shootingStars.splice(i, 1);
+          continue;
+        }
+
+        const grad = ctx.createLinearGradient(sh.x, sh.y, sh.x - sh.vx * sh.length, sh.y - sh.vy * sh.length);
+        grad.addColorStop(0, `rgba(255,255,255,${alpha})`);
+        grad.addColorStop(1, "rgba(255,255,255,0)");
+
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(sh.x, sh.y);
+        ctx.lineTo(sh.x - sh.vx * sh.length, sh.y - sh.vy * sh.length);
+        ctx.stroke();
+      }
+
       requestAnimationFrame(tick);
     }
     tick();
 
-    // Expose a tiny API if you ever need to tweak from console
+    // API
     window.YUBG_STARFIELD_API = {
       destroy() {
         clearInterval(bgKeepAlive);
