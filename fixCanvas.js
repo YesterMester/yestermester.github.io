@@ -1,16 +1,11 @@
 // fixCanvas.js
-(function () {
-  const canvasId = 'star-canvas';
-  let canvas = document.getElementById(canvasId);
+(function() {
+  // Check if the star canvas already exists
+  if (document.getElementById('star-background')) return;
 
-  // If canvas already exists, remove it to prevent duplicate errors
-  if (canvas) {
-    canvas.remove();
-  }
-
-  // Create canvas
-  canvas = document.createElement('canvas');
-  canvas.id = canvasId;
+  // Create the canvas
+  const canvas = document.createElement('canvas');
+  canvas.id = 'star-background';
   canvas.style.position = 'fixed';
   canvas.style.top = '0';
   canvas.style.left = '0';
@@ -18,7 +13,7 @@
   canvas.style.height = '100%';
   canvas.style.zIndex = '0';
   canvas.style.pointerEvents = 'none';
-  document.body.appendChild(canvas);
+  document.body.prepend(canvas);
 
   const ctx = canvas.getContext('2d');
   let stars = [];
@@ -41,23 +36,24 @@
       y: random(0, canvas.height),
       r: random(0.5, 2),
       dx: random(-0.2, 0.2),
-      dy: random(-0.2, 0.2),
+      dy: random(-0.2, 0.2)
     });
   }
 
   let mouse = { x: null, y: null };
-  window.addEventListener('mousemove', (e) => {
+  window.addEventListener('mousemove', e => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
   });
 
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     for (let star of stars) {
       star.x += star.dx;
       star.y += star.dy;
 
-      // Wrap around edges
+      // Wrap stars around edges
       if (star.x < 0) star.x = canvas.width;
       if (star.x > canvas.width) star.x = 0;
       if (star.y < 0) star.y = canvas.height;
@@ -73,7 +69,4 @@
   }
 
   animate();
-})();
-    animate();
-  }
 })();
