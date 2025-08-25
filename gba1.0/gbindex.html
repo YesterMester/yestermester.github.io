@@ -44,7 +44,7 @@
 
         <!-- Top-left Title -->
         <a
-          href="../index.html"
+          href="/index.html"
           style="
             position: fixed;
             top: 15px;
@@ -65,7 +65,7 @@
 
         <!-- Back Button -->
         <a
-          href="./eindex.html"
+          href="/eindex.html"
           style="
             position: fixed;
             top: 55px;
@@ -136,7 +136,7 @@
           >
             <!-- Favorites Button -->
             <a
-              href="./index_beta.html"
+              href="/gba1.0/index_beta.html"
               class="button"
               style="
                 border-color: #aaaaaa;
@@ -149,7 +149,7 @@
 
             <!-- Emulator Buttons -->
             <a
-              href="./gba"
+              href="/gba1.0/gba/"
               class="button"
               style="
                 border-color: #aaaaaa;
@@ -160,7 +160,7 @@
               >GBA</a
             >
             <a
-              href="./gbindex"
+              href="/gba1.0/gbindex.html"
               class="button"
               style="
                 border-color: #aaaaaa;
@@ -171,7 +171,7 @@
               >Game Boy</a
             >
             <a
-              href="./gbc"
+              href="/gba1.0/gbc/"
               class="button"
               style="
                 border-color: #aaaaaa;
@@ -255,69 +255,36 @@
 
         <!-- Styles -->
         <style>
-          body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-          }
-          h1,
-          h2,
-          h3,
-          p,
-          ul {
-            margin: 10px 0;
-          }
-          ul {
-            padding-left: 20px;
-          }
+          body { margin:0; padding:0; overflow-x:hidden; }
+          h1,h2,h3,p,ul { margin:10px 0; }
+          ul { padding-left:20px; }
 
-          /* Glow Hover Effects for Headers */
-          .glow-header {
-            transition: 0.4s;
-            cursor: default;
-          }
+          .glow-header { transition:0.4s; cursor:default; }
           .glow-header:hover {
-            text-shadow:
-              0 0 15px #aaaaaa,
-              0 0 30px #cccccc,
-              0 0 40px #aaaaaa;
+            text-shadow: 0 0 15px #aaaaaa,0 0 30px #cccccc,0 0 40px #aaaaaa;
             transform: scale(1.02);
           }
 
-          /* Buttons */
           .button {
-            display: inline-block;
-            margin: 8px 0;
-            padding: 10px 18px;
-            border-radius: 6px;
-            border: 2px solid;
-            text-decoration: none;
-            color: white;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
-            box-shadow: 0 0 8px;
-            transition: 0.3s;
+            display:inline-block;
+            margin:8px 0;
+            padding:10px 18px;
+            border-radius:6px;
+            border:2px solid;
+            text-decoration:none;
+            color:white;
+            text-shadow:0 0 8px rgba(255,255,255,0.7);
+            box-shadow:0 0 8px;
+            transition:0.3s;
           }
-          .button:hover {
-            transform: scale(1.05);
-          }
+          .button:hover { transform:scale(1.05); }
 
-          @media (max-width: 600px) {
-            h1 {
-              font-size: 1.8rem;
-            }
-            h2 {
-              font-size: 1.2rem;
-            }
-            h3 {
-              font-size: 1rem;
-            }
-            p,
-            ul {
-              font-size: 0.9rem;
-            }
-            div[style*="padding:25px"] {
-              padding: 15px;
-            }
+          @media (max-width:600px){
+            h1{ font-size:1.8rem; }
+            h2{ font-size:1.2rem; }
+            h3{ font-size:1rem; }
+            p,ul{ font-size:0.9rem; }
+            div[style*="padding:25px"]{ padding:15px; }
           }
         </style>
       </div>
@@ -329,7 +296,7 @@
         "routeParams": {},
         "data": {
           "url": "https://url/gba10/gbindex",
-          "system": { "p./arams": {}, "search": {}, "origin": "https://url" },
+          "system": { "params": {}, "search": {}, "origin": "https://url" },
           "resources": {},
           "pageMeta": {
             "title": "Untitled",
@@ -345,26 +312,12 @@
         }
       }
     </script>
-    <script id="vike_globalContext" type="application/json">
-      {}
-    </script>
-    <script
-      src="/assets/entries/entry-server-routing.TvlZWs4Q.js"
-      type="module"
-      async
-    ></script>
-    <link
-      rel="modulepreload"
-      href="/assets/entries/pages_gba10_gbindex.P46Obt9K.js"
-      as="script"
-      type="text/javascript"
-    /><link
-      rel="modulepreload"
-      href="/assets/chunks/chunk-Db3Z6WXb.js"
-      as="script"
-      type="text/javascript"
-    />
+    <script id="vike_globalContext" type="application/json"> {}</script>
+    <script src="/assets/entries/entry-server-routing.TvlZWs4Q.js" type="module" async></script>
+    <link rel="modulepreload" href="/assets/entries/pages_gba10_gbindex.P46Obt9K.js" as="script" type="text/javascript"/>
+    <link rel="modulepreload" href="/assets/chunks/chunk-Db3Z6WXb.js" as="script" type="text/javascript"/>
     <script src="/fixCanvas.js" defer></script>
     <script src="/fix-links.js" defer></script>
   </body>
 </html>
+
