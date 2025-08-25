@@ -1,0 +1,154 @@
+import{j as e,P as p,R as h,a as s,i as l,b as u}from"../chunks/chunk-Db3Z6WXb.js";/* empty css                      */const n=void 0,m=[{id:"jF0RejzrK4AbqdC7uey1x"},{id:"SQ8rqxJcw1RBHET_HNjl0",maxWidth:991},{id:"OYuARgrgjgNFdrguSuzee",maxWidth:767},{id:"iKuaGiplSFVr1Qf0xhb-_",maxWidth:479}],x=void 0,f=[],g=[],y=a=>e.jsx("body",{className:"w-element",children:e.jsx(p,{code:`<div style="position: relative; width: 100%; min-height: 100vh; overflow-x: hidden;">
+
+  <!-- Starfield Background -->
+  <canvas id="starfield" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:0;"></canvas>
+
+  <!-- Top-left Title -->
+  <a href="index.html" style="position:fixed; top:15px; left:20px; z-index:10; color:white; font-family:Arial, sans-serif; text-decoration:none; font-size:1.2rem; text-shadow:0 0 8px rgba(255,255,255,0.7); padding:4px 8px; border-radius:6px; background:rgba(255,255,255,0.05);">
+     Yester Unblocked Site
+  </a>
+
+  <!-- Back Button -->
+  <a href="gnext-pg.html" style="position:fixed; top:55px; left:20px; z-index:10; color:white; font-family:Arial, sans-serif; text-decoration:none; font-size:1rem; text-shadow:0 0 8px rgba(255,255,255,0.7); padding:6px 12px; border-radius:6px; border:2px solid #3399ff; box-shadow:0 0 8px rgba(0,153,255,0.5); background:rgba(51,153,255,0.15); transition:0.3s;"
+     onmouseover="this.style.background='#3399ff'; this.style.color='black'; this.style.boxShadow='0 0 15px #66ccff,0 0 30px #3399ff';"
+     onmouseout="this.style.background='rgba(51,153,255,0.15)'; this.style.color='white'; this.style.boxShadow='0 0 8px rgba(0,153,255,0.5)';">
+     ⬅ Back
+  </a>
+
+  <!-- Version -->
+  <div style="position:fixed; top:15px; right:20px; z-index:10; color:white; font-family:Arial, sans-serif; font-size:0.9rem; text-shadow:0 0 8px rgba(255,255,255,0.7); padding:4px 8px; border-radius:6px; background:rgba(255,255,255,0.05);">
+    1.0.7 Revamp
+  </div>
+
+  <!-- Main Content -->
+  <div style="position:relative; z-index:10; width:90%; max-width:900px; margin:120px auto 60px auto; font-family:Arial, sans-serif; color:white; line-height:1.6;">
+
+    <h1 class="glow-header">Privacy Policy</h1>
+
+    <div style="background:rgba(0,0,50,0.3); padding:25px; border-radius:12px; box-shadow:0 0 20px rgba(0,102,255,0.5); overflow-y:auto; max-height:calc(100vh - 200px);">
+
+      <h2 class="glow-subheader"># Information We Collect</h2>
+
+      <h3 class="glow-subheader">1. Personal Information</h3>
+      <p>We do not collect any personally identifiable information (PII), such as your name, address, or contact details, without your explicit consent.</p>
+
+      <h3 class="glow-subheader">2. Non-Personal Information</h3>
+      <p>We may collect non-personal information automatically as you interact with our website. This information may include but is not limited to:</p>
+      <ul>
+        <li><strong>Device information:</strong> Information about your device, operating system, and browser type.</li>
+        <li><strong>Log information:</strong> Certain log data like IP address, browser requests, timestamps, and referring URLs.</li>
+        <li><strong>Cookies:</strong> Small files stored on your device to recognize your browser and remember preferences.</li>
+      </ul>
+
+      <h2 class="glow-subheader"># Use of Information</h2>
+
+      <h3 class="glow-subheader">1. Personal Information</h3>
+      <p>We do not use personal information unless explicitly stated at collection.</p>
+
+      <h3 class="glow-subheader">2. Non-Personal Information</h3>
+      <p>We may use non-personal information to:</p>
+      <ul>
+        <li>Improve our website and user experience.</li>
+        <li>Customize content and ads using cookies and preferences.</li>
+        <li>Generate statistical data for internal analysis.</li>
+      </ul>
+
+      <h2 class="glow-subheader"># Data Storage</h2>
+      <p>Data is stored locally (localStorage, indexedDB, cookies) and not transferred to any servers or third parties.</p>
+
+      <h2 class="glow-subheader"># Third-Party Services</h2>
+      <p>Our site may link to third-party websites. We are not responsible for their content or policies. Please review their policies before use.</p>
+
+      <h2 class="glow-subheader"># Children's Privacy</h2>
+      <p>Not intended for children under 13. We do not knowingly collect personal info from children. Contact us if removal is needed.</p>
+
+      <h2 class="glow-subheader"># Data Security</h2>
+      <p>We implement reasonable security measures, but cannot guarantee absolute security over the internet.</p>
+
+      <h2 class="glow-subheader"># Changes To This Privacy Policy</h2>
+      <p>We may update this Privacy Policy at any time. Changes take effect immediately upon posting. Review periodically for updates.</p>
+
+    </div>
+  </div>
+
+  <!-- Starfield Script -->
+  <script>
+    const canvas=document.getElementById('starfield');
+    const ctx=canvas.getContext('2d');
+    function resizeCanvas(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+    window.addEventListener('resize',resizeCanvas);
+    resizeCanvas();
+
+    const stars=[];
+    const STAR_COUNT=400;
+    const pointer={x:-1000,y:-1000};
+
+    window.addEventListener('mousemove',e=>{ pointer.x=e.clientX; pointer.y=e.clientY; });
+    window.addEventListener('touchmove',e=>{
+      pointer.x=e.touches[0].clientX; pointer.y=e.touches[0].clientY;
+    });
+
+    for(let i=0;i<STAR_COUNT;i++){
+      stars.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        dx:(Math.random()-0.5)*0.5,
+        dy:(Math.random()-0.5)*0.5,
+        r:Math.random()*1.5+0.5
+      });
+    }
+
+    function animate(){
+      ctx.fillStyle="rgba(0,0,20,0.15)";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      stars.forEach(s=>{
+        let dx=s.x-pointer.x, dy=s.y-pointer.y, dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<80){ s.x+=dx/12; s.y+=dy/12; }
+        s.x+=s.dx; s.y+=s.dy;
+        if(s.x<0) s.x=canvas.width;
+        if(s.x>canvas.width) s.x=0;
+        if(s.y<0) s.y=canvas.height;
+        if(s.y>canvas.height) s.y=0;
+        ctx.beginPath();
+        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+        ctx.fillStyle=\`rgba(50,150,255,\${0.7+s.r/2})\`;
+        ctx.shadowBlur=8;
+        ctx.shadowColor=\`rgba(80,180,255,0.7)\`;
+        ctx.fill();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  <\/script>
+
+  <!-- Styles -->
+  <style>
+    body{ margin:0; padding:0; overflow-x:hidden; }
+    h1,h2,h3,p,ul{ margin:10px 0; }
+    ul{ padding-left:20px; }
+
+    /* Glow Hover Effects for Headers */
+    .glow-header, .glow-subheader{
+      transition:0.4s;
+      cursor:default;
+    }
+    .glow-header:hover{
+      text-shadow:0 0 15px #66ccff,0 0 30px #3399ff,0 0 40px #66ccff;
+      transform:scale(1.02);
+    }
+    .glow-subheader:hover{
+      text-shadow:0 0 12px #66ccff,0 0 24px #3399ff;
+      transform:scale(1.01);
+    }
+
+    @media (max-width:600px){
+      h1{ font-size:1.8rem; }
+      h2{ font-size:1.2rem; }
+      h3{ font-size:1rem; }
+      p,ul{ font-size:0.9rem; }
+      div[style*="padding:25px"]{ padding:15px; }
+    }
+  </style>
+
+</div>
+`,executeScriptOnCanvas:!0,className:"w-html-embed"})}),w=({data:a})=>{const{system:t,resources:r,url:i}=a;return e.jsx(h.Provider,{value:{imageLoader:l,assetBaseUrl:s,resources:r,breakpoints:m,onError:console.error},children:e.jsx(y,{system:t},i)})},v=Object.freeze(Object.defineProperty({__proto__:null,default:w},Symbol.toStringTag,{value:"Module"})),b=({data:a})=>{const{pageMeta:t}=a,{origin:r}=new URL(a.url);let i=t.socialImageUrl;t.socialImageAssetName&&(i=`${r}${l({src:`${s}/${t.socialImageAssetName}`})}`);const d=t.custom.some(o=>o.property==="twitter:card");return e.jsxs(e.Fragment,{children:[a.url&&e.jsx("meta",{property:"og:url",content:a.url}),e.jsx("title",{children:t.title}),e.jsx("meta",{property:"og:title",content:t.title}),t.description&&e.jsxs(e.Fragment,{children:[e.jsx("meta",{name:"description",content:t.description}),e.jsx("meta",{property:"og:description",content:t.description})]}),e.jsx("meta",{property:"og:type",content:"website"}),n,i&&e.jsx("meta",{property:"og:image",content:t.socialImageUrl}),n,t.excludePageFromSearch&&e.jsx("meta",{name:"robots",content:"noindex, nofollow"}),t.custom.map(({property:o,content:c})=>e.jsx("meta",{property:o,content:c},o)),(t.socialImageAssetName!==void 0||t.socialImageUrl!==void 0)&&d===!1&&e.jsx("meta",{property:"twitter:card",content:"summary_large_image"}),x,f.map(o=>e.jsx("link",{rel:"preload",href:`${s}${o}`,as:"font",crossOrigin:"anonymous"},o)),g.map(o=>e.jsx("link",{rel:"preload",href:`${s}${o}`,as:"image"},o))]})},S=Object.freeze(Object.defineProperty({__proto__:null,Head:b},Symbol.toStringTag,{value:"Module"})),j={isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},onBeforeRenderEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},dataEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:{server:!0}}},onRenderClient:{type:"standard",definedAtData:{filePathToShowToUser:"/renderer/+onRenderClient.tsx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:u}},Page:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/privacy/+Page.tsx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:v}},Head:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/privacy/+Head.tsx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:S}}};export{j as configValuesSerialized};

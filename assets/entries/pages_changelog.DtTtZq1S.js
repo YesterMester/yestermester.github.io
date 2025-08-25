@@ -1,0 +1,137 @@
+import{j as e,P as p,R as h,a as s,i as l,b as x}from"../chunks/chunk-Db3Z6WXb.js";/* empty css                      */const n=void 0,u=[{id:"jF0RejzrK4AbqdC7uey1x"},{id:"SQ8rqxJcw1RBHET_HNjl0",maxWidth:991},{id:"OYuARgrgjgNFdrguSuzee",maxWidth:767},{id:"iKuaGiplSFVr1Qf0xhb-_",maxWidth:479}],g=void 0,f=[],m=[],v=i=>e.jsx("body",{className:"w-element",children:e.jsx(p,{code:`<div style="position: relative; width: 100%; min-height: 100vh; overflow-x: hidden;">
+
+  <!-- Starfield Background (Green Tint) -->
+  <canvas id="starfield" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:0;"></canvas>
+
+  <!-- Top-left Title -->
+  <a href="index.html" style="position:fixed; top:15px; left:20px; z-index:10; color:white; font-family:Arial, sans-serif; text-decoration:none; font-size:1.2rem; text-shadow:0 0 8px rgba(255,255,255,0.7); padding:4px 8px; border-radius:6px; background:rgba(255,255,255,0.05);">
+     Yester Unblocked Site
+  </a>
+
+  <!-- Back Button -->
+  <a href="gnext-pg.html" style="position:fixed; top:55px; left:20px; z-index:10; color:white; font-family:Arial, sans-serif; text-decoration:none; font-size:1rem; text-shadow:0 0 8px rgba(255,255,255,0.7); padding:6px 12px; border-radius:6px; border:2px solid #33ff66; box-shadow:0 0 8px rgba(51,255,102,0.5); background:rgba(51,255,102,0.15); transition:0.3s;"
+     onmouseover="this.style.background='#33ff66'; this.style.color='black'; this.style.boxShadow='0 0 15px #66ff99,0 0 30px #33ff66';"
+     onmouseout="this.style.background='rgba(51,255,102,0.15)'; this.style.color='white'; this.style.boxShadow='0 0 8px rgba(51,255,102,0.5)';">
+     ⬅ Back
+  </a>
+
+  <!-- Version -->
+  <div style="position:fixed; top:15px; right:20px; z-index:10; color:white; font-family:Arial, sans-serif; font-size:0.9rem; text-shadow:0 0 8px rgba(255,255,255,0.7); padding:4px 8px; border-radius:6px; background:rgba(255,255,255,0.05);">
+    1.0.7 Revamp
+  </div>
+
+  <!-- Main Content -->
+  <div style="position:relative; z-index:10; width:90%; max-width:900px; margin:120px auto 60px auto; font-family:Arial, sans-serif; color:white; line-height:1.6;">
+
+    <h1 class="glow-header">Changelog</h1>
+
+    <div style="background:rgba(0,50,0,0.3); padding:25px; border-radius:12px; box-shadow:0 0 20px rgba(51,255,102,0.5); overflow-y:auto; max-height:calc(100vh - 200px);">
+
+      <h2 class="glow-subheader"># Version 1.0.7 Revamp</h2>
+      <ul>
+        <li>Added **polished starry backgrounds** to all pages with color variations.</li>
+        <li>Implemented **cursor-interactive stars** that move away from cursor/touch.</li>
+        <li>Created **Index, GNext-PG, Games, Privacy, About, Changelog pages** with consistent layout.</li>
+        <li>Added **version number** on all pages: <strong>1.0.7 Revamp</strong>.</li>
+        <li>Polished **button styles**, hover effects, and interactive glow effects for headers.</li>
+        <li>Added **scrollable content** for mobile and desktop compatibility.</li>
+        <li>Privacy page enhanced with structured headers and readable formatting.</li>
+        <li>About page created with **Discord link** and polished content layout.</li>
+        <li>Games page fully functional with **all game buttons, back button, search feature**, and polished aesthetics.</li>
+        <li>Ensured **all pages are visually consistent** and responsive.</li>
+      </ul>
+
+      <h2 class="glow-subheader"># Previous Changes</h2>
+      <ul>
+        <li>Initial site setup with Index and basic navigation.</li>
+        <li>Implemented first version of interactive star backgrounds.</li>
+        <li>Added GNext-PG navigation page with buttons for Games, Emulators, Privacy, About.</li>
+      </ul>
+
+      <h2 class="glow-subheader"># Notes</h2>
+      <p>All pages now follow a polished, cohesive design with interactive backgrounds, responsive layout, and readable content. Future updates will continue this trend.</p>
+
+    </div>
+  </div>
+
+  <!-- Starfield Script (Green Tint) -->
+  <script>
+    const canvas=document.getElementById('starfield');
+    const ctx=canvas.getContext('2d');
+    function resizeCanvas(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+    window.addEventListener('resize',resizeCanvas);
+    resizeCanvas();
+
+    const stars=[];
+    const STAR_COUNT=400;
+    const pointer={x:-1000,y:-1000};
+
+    window.addEventListener('mousemove',e=>{ pointer.x=e.clientX; pointer.y=e.clientY; });
+    window.addEventListener('touchmove',e=>{
+      pointer.x=e.touches[0].clientX; pointer.y=e.touches[0].clientY;
+    });
+
+    for(let i=0;i<STAR_COUNT;i++){
+      stars.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        dx:(Math.random()-0.5)*0.5,
+        dy:(Math.random()-0.5)*0.5,
+        r:Math.random()*1.5+0.5
+      });
+    }
+
+    function animate(){
+      ctx.fillStyle="rgba(0,20,0,0.15)";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      stars.forEach(s=>{
+        let dx=s.x-pointer.x, dy=s.y-pointer.y, dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<80){ s.x+=dx/12; s.y+=dy/12; }
+        s.x+=s.dx; s.y+=s.dy;
+        if(s.x<0) s.x=canvas.width;
+        if(s.x>canvas.width) s.x=0;
+        if(s.y<0) s.y=canvas.height;
+        if(s.y>canvas.height) s.y=0;
+        ctx.beginPath();
+        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+        ctx.fillStyle=\`rgba(51,255,102,\${0.7+s.r/2})\`;
+        ctx.shadowBlur=8;
+        ctx.shadowColor=\`rgba(102,255,153,0.7)\`;
+        ctx.fill();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  <\/script>
+
+  <!-- Styles -->
+  <style>
+    body{ margin:0; padding:0; overflow-x:hidden; }
+    h1,h2,h3,p,ul{ margin:10px 0; }
+    ul{ padding-left:20px; }
+
+    /* Glow Hover Effects for Headers */
+    .glow-header, .glow-subheader{
+      transition:0.4s;
+      cursor:default;
+    }
+    .glow-header:hover{
+      text-shadow:0 0 15px #33ff66,0 0 30px #66ff99,0 0 40px #33ff66;
+      transform:scale(1.02);
+    }
+    .glow-subheader:hover{
+      text-shadow:0 0 12px #33ff66,0 0 24px #66ff99;
+      transform:scale(1.01);
+    }
+
+    @media (max-width:600px){
+      h1{ font-size:1.8rem; }
+      h2{ font-size:1.2rem; }
+      h3{ font-size:1rem; }
+      p,ul{ font-size:0.9rem; }
+      div[style*="padding:25px"]{ padding:15px; }
+    }
+  </style>
+
+</div>
+`,executeScriptOnCanvas:!0,className:"w-html-embed"})}),y=({data:i})=>{const{system:t,resources:r,url:o}=i;return e.jsx(h.Provider,{value:{imageLoader:l,assetBaseUrl:s,resources:r,breakpoints:u,onError:console.error},children:e.jsx(v,{system:t},o)})},w=Object.freeze(Object.defineProperty({__proto__:null,default:y},Symbol.toStringTag,{value:"Module"})),b=({data:i})=>{const{pageMeta:t}=i,{origin:r}=new URL(i.url);let o=t.socialImageUrl;t.socialImageAssetName&&(o=`${r}${l({src:`${s}/${t.socialImageAssetName}`})}`);const d=t.custom.some(a=>a.property==="twitter:card");return e.jsxs(e.Fragment,{children:[i.url&&e.jsx("meta",{property:"og:url",content:i.url}),e.jsx("title",{children:t.title}),e.jsx("meta",{property:"og:title",content:t.title}),t.description&&e.jsxs(e.Fragment,{children:[e.jsx("meta",{name:"description",content:t.description}),e.jsx("meta",{property:"og:description",content:t.description})]}),e.jsx("meta",{property:"og:type",content:"website"}),n,o&&e.jsx("meta",{property:"og:image",content:t.socialImageUrl}),n,t.excludePageFromSearch&&e.jsx("meta",{name:"robots",content:"noindex, nofollow"}),t.custom.map(({property:a,content:c})=>e.jsx("meta",{property:a,content:c},a)),(t.socialImageAssetName!==void 0||t.socialImageUrl!==void 0)&&d===!1&&e.jsx("meta",{property:"twitter:card",content:"summary_large_image"}),g,f.map(a=>e.jsx("link",{rel:"preload",href:`${s}${a}`,as:"font",crossOrigin:"anonymous"},a)),m.map(a=>e.jsx("link",{rel:"preload",href:`${s}${a}`,as:"image"},a))]})},S=Object.freeze(Object.defineProperty({__proto__:null,Head:b},Symbol.toStringTag,{value:"Module"})),A={isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},onBeforeRenderEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},dataEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:{server:!0}}},onRenderClient:{type:"standard",definedAtData:{filePathToShowToUser:"/renderer/+onRenderClient.tsx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:x}},Page:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/changelog/+Page.tsx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:w}},Head:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/changelog/+Head.tsx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:S}}};export{A as configValuesSerialized};
