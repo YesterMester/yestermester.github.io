@@ -1,39 +1,615 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cookie Import/Export Tool</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cookie Import / Export — Yester's Unblocked Site</title>
+
+<style>
+  :root{
+    --bg:#0b1220;
+    --card:#0f1724;
+    --muted:#9aa4b2;
+    --accent:#ff6b9a;
+    --glass: rgba(255,255,255,0.03);
+    --success: #22c55e;
+    --danger: #ef4444;
+    --radius:12px;
+    --shadow: 0 6px 20px rgba(2,6,23,0.6);
+  }
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,#05060a 0%,var(--bg) 60%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; color:#e6eef8;}
+  .wrap{max-width:1200px;margin:28px auto;padding:20px;}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:12px}
+  .title{
+    display:flex;align-items:center;gap:12px;
+  }
+  .logo {
+    width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7be0ff);display:flex;align-items:center;justify-content:center;color:#051124;font-weight:700;font-size:16px;box-shadow:var(--shadow);
+  }
+  h1{margin:0;font-size:1.25rem}
+  .subtitle{color:var(--muted);font-size:0.95rem;margin-top:2px}
+
+  /* top-right small controls */
+  .meta {
+    display:flex;flex-direction:column;align-items:flex-end;gap:8px;
+  }
+  .meta .version{background:var(--glass);padding:6px 10px;border-radius:8px;font-size:0.85rem;color:#fff}
+  .meta .cookie-manager{
+    display:flex;flex-direction:column;align-items:flex-end;background:transparent;
+    gap:6px;font-size:0.82rem;
+  }
+  .meta .cookie-manager a{
+    display:inline-block;padding:6px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);text-decoration:none;color:#fff;background:transparent;transition:all .18s;
+  }
+  .meta .cookie-manager a:hover{background:rgba(255,255,255,0.06);color:#000}
+
+  /* layout */
+  .grid{
+    display:grid;grid-template-columns:360px 1fr;gap:18px;
+  }
+  @media(max-width:880px){ .grid{grid-template-columns:1fr} .meta{align-items:flex-start} }
+
+  /* left controls card */
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);
+  }
+  .controls {display:flex;flex-direction:column;gap:12px}
+  .row{display:flex;gap:8px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:#fff;text-decoration:none;cursor:pointer;font-weight:600;font-size:0.95rem;
+  }
+  .btn.ghost{background:transparent;border:1px dashed rgba(255,255,255,0.04);font-weight:500}
+  .btn.danger{background:linear-gradient(90deg,var(--danger),#ff7a7a);color:white;border:none}
+  .btn.success{background:linear-gradient(90deg,var(--success),#60d68b);color:#01220a;border:none}
+
+  input[type="file"]{display:none}
+  .file-label{display:inline-block;padding:10px 12px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+
+  label.small{font-size:0.85rem;color:var(--muted);display:block;margin-bottom:6px}
+
+  .search{
+    display:flex;gap:8px;align-items:center;
+    background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);
+  }
+  .search input{flex:1;padding:8px;border:none;background:transparent;color:inherit;font-size:0.95rem}
+  .search input:focus{outline:none}
+
+  /* create cookie mini-form */
+  .mini-form{display:flex;flex-direction:column;gap:8px}
+  .mini-form input, .mini-form select {padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+  .mini-form .two{display:flex;gap:8px}
+  .mini-form .two input{flex:1}
+  .note{font-size:0.82rem;color:var(--muted)}
+
+  /* table area */
+  .table-wrap{overflow:auto;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:18px;border-radius:var(--radius);box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse}
+  thead th{position:sticky;top:0;background:rgba(7,10,18,0.6);backdrop-filter:blur(4px);padding:12px;text-align:left;font-size:0.92rem;color:var(--muted)}
+  tbody td{padding:10px;border-top:1px solid rgba(255,255,255,0.02);vertical-align:middle}
+  .col-name{width:24%}
+  .col-val{width:46%}
+  .col-actions{width:20%;text-align:right}
+
+  .cell-val{font-family: ui-monospace,SFMono-Regular,Menlo,monospace;font-size:0.9rem;color:#cfe8ff;max-width:440px;display:inline-block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pill{display:inline-block;padding:6px 8px;border-radius:999px;font-size:0.78rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+  .action-btn{margin-left:8px;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff;cursor:pointer}
+  .action-btn.ghost{border:1px dashed rgba(255,255,255,0.04)}
+  .quiet{color:var(--muted);font-size:0.9rem}
+
+  /* modal */
+  .modal-back{position:fixed;inset:0;background:rgba(3,6,12,0.6);display:flex;align-items:center;justify-content:center;z-index:9999}
+  .modal{width:calc(100% - 40px);max-width:720px;background:linear-gradient(180deg,var(--card),rgba(15,23,36,0.95));padding:18px;border-radius:12px;box-shadow:0 20px 40px rgba(2,6,23,0.7);}
+  .modal h3{margin:0 0 10px 0}
+  .form-row{display:flex;gap:8px}
+  .form-row > * {flex:1}
+
+  /* toast */
+  .toast{
+    position:fixed;right:20px;bottom:20px;background:rgba(5,8,15,0.95);color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 10px 30px rgba(2,6,23,0.6);z-index:99999;font-weight:600
+  }
+
+  footer{margin-top:18px;color:var(--muted);font-size:0.9rem;text-align:center}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <div class="logo">YC</div>
+        <div>
+          <h1>Cookie Import / Export Tool</h1>
+          <div class="subtitle">Manage site cookies — export, import, edit, and bulk actions</div>
+        </div>
+      </div>
+
+      <div class="meta">
+        <div class="version">1.0.0 • ccei</div>
+        <div class="cookie-manager">
+          <a href="/ccei.html" title="Open Cookie Manager">Cookie Manager</a>
+          <small class="quiet">Manage your save data</small>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- LEFT CONTROLS -->
+      <div class="card">
+        <div class="controls">
+          <div class="row">
+            <label class="small" style="flex:1">Search / Filter</label>
+          </div>
+          <div class="search" role="search">
+            <input id="q" type="search" placeholder="Search cookie name or value..." />
+            <button class="btn ghost" id="refreshBtn" title="Refresh list">Refresh</button>
+          </div>
+
+          <div class="row" style="justify-content:space-between">
+            <div style="display:flex;gap:8px">
+              <button class="btn" id="exportBtn">Export JSON</button>
+              <button class="btn" id="downloadBtn">Download</button>
+            </div>
+            <label class="file-label">
+              <input type="file" id="fileInput" accept=".json,.txt" />
+              Upload file
+            </label>
+          </div>
+
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <button class="btn danger" id="deleteAllBtn">Delete All</button>
+            <button class="btn success" id="createBtn">Create Cookie</button>
+          </div>
+
+          <hr style="border:none;border-top:1px dashed rgba(255,255,255,0.03);margin:8px 0">
+
+          <div>
+            <label class="small">Quick create (name/value)</label>
+            <div class="mini-form">
+              <input id="newName" placeholder="cookie_name" />
+              <input id="newValue" placeholder="cookie_value" />
+              <div class="two">
+                <input id="newPath" placeholder="path (default /)" value="/" />
+                <input id="newExpires" placeholder="expires in days (optional)" />
+              </div>
+              <div style="display:flex;gap:8px;align-items:center">
+                <label><input id="newSecure" type="checkbox" /> Secure</label>
+                <label><input id="newHttpOnly" type="checkbox" disabled /> HttpOnly (can't set from JS)</label>
+                <label style="margin-left:auto"><input id="newSameSite" type="checkbox" /> Lax</label>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <button class="btn" id="quickCreateBtn">Create</button>
+                <button class="btn ghost" id="copyAllBtn">Copy All JSON</button>
+              </div>
+            </div>
+            <p class="note">Note: HttpOnly cookies cannot be created via client-side JS. Use server-side Set-Cookie for that.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT TABLE -->
+      <div class="table-wrap card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <div>
+            <strong id="countLabel">Cookies: 0</strong>
+            <span class="quiet"> — cookies available via <code>document.cookie</code></span>
+          </div>
+          <div>
+            <button class="btn ghost" id="selectAllBtn">Select All</button>
+            <button class="btn ghost" id="deselectBtn">Clear</button>
+            <button class="btn danger" id="deleteSelectedBtn">Delete Selected</button>
+          </div>
+        </div>
+
+        <table id="cookieTable" aria-live="polite" role="table">
+          <thead>
+            <tr>
+              <th class="col-name">Name</th>
+              <th class="col-val">Value</th>
+              <th class="col-actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <footer style="margin-top:14px">
+          <div class="note">Tip: You cannot read or delete <strong>HttpOnly</strong> cookies from JavaScript — they will not appear in this list.</div>
+        </footer>
+      </div>
+    </div>
+
+    <footer>© Yester's Unblocked Site</footer>
+  </div>
+
+  <!-- Modal (edit/create) -->
+  <div id="modalRoot" style="display:none"></div>
+
+  <!-- Toast -->
+  <div id="toast" style="display:none" class="toast"></div>
+
+<script>
+/* ---------- SAFE COOKIE MANAGER SCRIPT ---------- */
+/* careful: JS can only access non-HttpOnly cookies for current domain/path */
+(function(){
+  'use strict';
+
+  // helpers
+  const $ = sel => document.querySelector(sel);
+  const $$ = sel => Array.from(document.querySelectorAll(sel));
+  const toastEl = $('#toast');
+  let toastTimeout = null;
+  function toast(msg, timeout=3000){
+    if(toastTimeout) clearTimeout(toastTimeout);
+    toastEl.textContent = msg;
+    toastEl.style.display='block';
+    toastTimeout = setTimeout(()=>{ toastEl.style.display='none'; }, timeout);
+  }
+
+  function parseCookiesString(cstr){
+    const out = {};
+    if(!cstr) return out;
+    // split on ';' but cookie value may have '=' so split at first '=' per pair
+    const parts = cstr.split(';');
+    for(let part of parts){
+      part = part.trim();
+      if(!part) continue;
+      const idx = part.indexOf('=');
+      if(idx < 0) {
+        out[part] = '';
+      } else {
+        const name = part.slice(0, idx).trim();
+        const val = part.slice(idx+1);
+        try { out[decodeURIComponent(name)] = decodeURIComponent(val); }
+        catch(e){ out[name] = val; }
+      }
     }
-    h1 {
-      margin-bottom: 20px;
+    return out;
+  }
+
+  function getCookies() {
+    return parseCookiesString(document.cookie || '');
+  }
+
+  function setCookie(name, value, opts = {}) {
+    if(!name) return false;
+    // value and name must be encoded
+    const encName = encodeURIComponent(name);
+    const encVal = encodeURIComponent(value);
+    let cookie = encName + '=' + encVal;
+    if(opts.path) cookie += '; path=' + opts.path;
+    if(opts.domain) cookie += '; domain=' + opts.domain;
+    if(opts.expires) {
+      // accepts Date or number-of-days
+      let date;
+      if(typeof opts.expires === 'number') { date = new Date(Date.now() + opts.expires * 864e5); }
+      else if(opts.expires instanceof Date) date = opts.expires;
+      else date = new Date(opts.expires);
+      cookie += '; expires=' + date.toUTCString();
     }
-    button {
-      margin: 5px;
-      padding: 8px 14px;
-      cursor: pointer;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      background: #f4f4f4;
-      transition: background 0.3s;
+    if(opts.secure) cookie += '; Secure';
+    if(opts.sameSite) cookie += '; SameSite=' + opts.sameSite;
+    document.cookie = cookie;
+    return true;
+  }
+
+  function deleteCookie(name, opts = {}) {
+    // to reliably delete, set expires in past, and path/domain equal to set ones
+    setCookie(name, '', Object.assign({}, opts, { expires: -365 }));
+  }
+
+  // UI helpers
+  const tbody = $('#cookieTable tbody');
+  const qInput = $('#q');
+  const countLabel = $('#countLabel');
+
+  // Build the table row for a cookie (safe text insertion)
+  function makeRow(name, value){
+    const tr = document.createElement('tr');
+    tr.dataset.cookieName = name;
+
+    // name cell
+    const tdName = document.createElement('td');
+    tdName.className = 'col-name';
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.className = 'row-check';
+    cb.title = 'Select cookie';
+    tdName.appendChild(cb);
+
+    const nm = document.createElement('div');
+    nm.textContent = name;
+    nm.className = 'pill';
+    nm.style.marginLeft = '8px';
+    tdName.appendChild(nm);
+
+    // value cell
+    const tdVal = document.createElement('td');
+    tdVal.className = 'col-val';
+    const pre = document.createElement('div');
+    pre.className = 'cell-val';
+    pre.title = value;
+    pre.textContent = value;
+    tdVal.appendChild(pre);
+
+    // actions
+    const tdAct = document.createElement('td');
+    tdAct.className = 'col-actions';
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'action-btn';
+    copyBtn.textContent = 'Copy';
+    copyBtn.title = 'Copy value';
+    copyBtn.addEventListener('click', ()=> {
+      navigator.clipboard?.writeText(value).then(()=>toast('Copied value to clipboard'));
+    });
+
+    const editBtn = document.createElement('button');
+    editBtn.className = 'action-btn';
+    editBtn.textContent = 'Edit';
+    editBtn.title = 'Edit cookie';
+    editBtn.addEventListener('click', ()=> openEditModal(name, value));
+
+    const delBtn = document.createElement('button');
+    delBtn.className = 'action-btn ghost';
+    delBtn.textContent = 'Delete';
+    delBtn.title = 'Delete cookie';
+    delBtn.addEventListener('click', ()=> {
+      if(!confirm('Delete cookie "'+name+'"?')) return;
+      // best effort: attempt delete on path / and current path
+      deleteCookie(name, {path:'/'});
+      deleteCookie(name, {}); // current path
+      toast('Deleted "'+name+'"');
+      refreshTable();
+    });
+
+    tdAct.appendChild(copyBtn);
+    tdAct.appendChild(editBtn);
+    tdAct.appendChild(delBtn);
+
+    tr.appendChild(tdName);
+    tr.appendChild(tdVal);
+    tr.appendChild(tdAct);
+
+    return tr;
+  }
+
+  // render table with optional filter
+  function refreshTable(){
+    const cookies = getCookies();
+    const query = (qInput.value || '').trim().toLowerCase();
+    const entries = Object.entries(cookies).filter(([k,v]) => {
+      if(!query) return true;
+      return k.toLowerCase().includes(query) || (String(v||'')).toLowerCase().includes(query);
+    }).sort((a,b) => a[0].localeCompare(b[0]));
+    tbody.innerHTML = '';
+    for(const [k,v] of entries){
+      tbody.appendChild(makeRow(k,v));
     }
-    button:hover {
-      background: #ddd;
+    countLabel.textContent = `Cookies: ${entries.length}`;
+  }
+
+  // modal for edit/create
+  function openEditModal(name='', value='', mode='edit'){
+    const root = $('#modalRoot');
+    root.innerHTML = '';
+    root.style.display = 'block';
+    const bg = document.createElement('div'); bg.className='modal-back';
+    const modal = document.createElement('div'); modal.className='modal';
+    const title = document.createElement('h3'); title.textContent = mode==='edit' ? 'Edit cookie' : 'Create cookie';
+    modal.appendChild(title);
+
+    const form = document.createElement('div');
+    form.className = 'mini-form';
+    // name
+    const nameLbl = document.createElement('label'); nameLbl.textContent = 'Name'; form.appendChild(nameLbl);
+    const nameIn = document.createElement('input'); nameIn.value = name; form.appendChild(nameIn);
+    // value
+    const valLbl = document.createElement('label'); valLbl.textContent = 'Value'; form.appendChild(valLbl);
+    const valIn = document.createElement('input'); valIn.value = value; form.appendChild(valIn);
+
+    // path/domain/expire/secure/samesite
+    const row = document.createElement('div'); row.className='two';
+    const pathIn = document.createElement('input'); pathIn.placeholder='/'; pathIn.value='/'; row.appendChild(pathIn);
+    const domainIn = document.createElement('input'); domainIn.placeholder='domain (optional)'; row.appendChild(domainIn);
+    form.appendChild(row);
+
+    const row2 = document.createElement('div'); row2.className='two';
+    const expiresIn = document.createElement('input'); expiresIn.placeholder='expires (days)'; row2.appendChild(expiresIn);
+    const sameSiteSelect = document.createElement('select'); ['','Lax','Strict','None'].forEach(s=>{ const o=document.createElement('option'); o.value=s; o.textContent=s||'SameSite (default)'; sameSiteSelect.appendChild(o); }); row2.appendChild(sameSiteSelect);
+    form.appendChild(row2);
+
+    const optsRow = document.createElement('div'); optsRow.style.display='flex'; optsRow.style.gap='8px'; optsRow.style.marginTop='8px';
+    const secureLbl = document.createElement('label'); secureLbl.innerHTML = '<input type="checkbox"> Secure'; optsRow.appendChild(secureLbl);
+    const httplbl = document.createElement('label'); httplbl.innerHTML = '<input type="checkbox" disabled> HttpOnly (server only)'; optsRow.appendChild(httplbl);
+    form.appendChild(optsRow);
+
+    const actions = document.createElement('div'); actions.style.display='flex'; actions.style.gap='8px'; actions.style.marginTop='12px';
+    const saveBtn = document.createElement('button'); saveBtn.className='btn'; saveBtn.textContent='Save';
+    const cancelBtn = document.createElement('button'); cancelBtn.className='btn ghost'; cancelBtn.textContent='Cancel';
+    actions.appendChild(saveBtn); actions.appendChild(cancelBtn);
+    form.appendChild(actions);
+
+    modal.appendChild(form);
+    bg.appendChild(modal);
+    root.appendChild(bg);
+
+    cancelBtn.addEventListener('click', ()=> { root.style.display='none'; root.innerHTML=''; });
+    bg.addEventListener('click', (ev)=> { if(ev.target===bg){ root.style.display='none'; root.innerHTML=''; }});
+
+    saveBtn.addEventListener('click', ()=>{
+      const nm = nameIn.value.trim();
+      const val = valIn.value;
+      if(!nm){ alert('Name required'); return; }
+      const opts = { path: pathIn.value || '/' };
+      const dom = domainIn.value.trim(); if(dom) opts.domain = dom;
+      if(expiresIn.value) { const n = Number(expiresIn.value); if(!isNaN(n)) opts.expires = n; }
+      if(secureLbl.querySelector('input').checked) opts.secure = true;
+      if(sameSiteSelect.value) opts.sameSite = sameSiteSelect.value;
+
+      setCookie(nm, val, opts);
+      toast('Saved cookie: ' + nm);
+      root.style.display='none'; root.innerHTML='';
+      refreshTable();
+    });
+
+    // focus
+    nameIn.focus();
+  }
+
+  // export JSON (in textarea-like string)
+  function exportJSON(selectedOnly=false){
+    const cookies = getCookies();
+    let out = {};
+    if(selectedOnly){
+      const checks = Array.from(document.querySelectorAll('.row-check')).filter(ch => ch.checked);
+      const names = checks.map(ch => ch.closest('tr').dataset.cookieName);
+      for(const n of names) if(cookies[n]!==undefined) out[n]=cookies[n];
+    } else out = cookies;
+    return JSON.stringify(out, null, 2);
+  }
+
+  // download file
+  function downloadFile(filename, content){
+    const blob = new Blob([content], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.style.display='none';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  // import JSON text -> set cookies
+  function importFromJSON(text){
+    let parsed;
+    try{
+      parsed = JSON.parse(text);
+    }catch(e){ alert('Invalid JSON'); return; }
+    if(typeof parsed !== 'object' || parsed === null) { alert('JSON must be an object of name:value pairs'); return; }
+    const names = Object.keys(parsed);
+    for(const n of names){
+      try { setCookie(n, String(parsed[n]), { path: '/' }); }
+      catch(e){ console.warn('setCookie failed', e); }
     }
-    textarea {
-      width: 100%;
-      height: 120px;
-      margin-top: 10px;
+    toast('Imported ' + names.length + ' cookies (attempted).');
+    refreshTable();
+  }
+
+  // Quick-create handler
+  $('#quickCreateBtn').addEventListener('click', ()=>{
+    const n = $('#newName').value.trim();
+    const v = $('#newValue').value;
+    const p = $('#newPath').value || '/';
+    const d = $('#newExpires').value;
+    const secure = $('#newSecure').checked;
+    if(!n){ alert('Name is required'); return; }
+    const opts = { path: p };
+    if(d) {
+      const num = Number(d);
+      if(!isNaN(num)) opts.expires = num;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
+    if(secure) opts.secure = true;
+    setCookie(n, v, opts);
+    toast('Created ' + n);
+    refreshTable();
+  });
+
+  // file upload
+  $('#fileInput').addEventListener('change', (ev)=>{
+    const f = ev.target.files && ev.target.files[0];
+    if(!f) return;
+    const r = new FileReader();
+    r.onload = () => { importFromJSON(r.result); $('#fileInput').value = ''; };
+    r.onerror = ()=> toast('File read error');
+    r.readAsText(f);
+  });
+
+  // buttons
+  $('#exportBtn').addEventListener('click', ()=>{
+    const txt = exportJSON(false);
+    // show in modal
+    openExportModal(txt);
+  });
+  $('#downloadBtn').addEventListener('click', ()=>{
+    const txt = exportJSON(false);
+    downloadFile('cookies.json', txt);
+    toast('Downloaded cookies.json');
+  });
+  $('#copyAllBtn').addEventListener('click', ()=>{
+    const txt = exportJSON(false);
+    navigator.clipboard?.writeText(txt).then(()=> toast('Copied JSON to clipboard') );
+  });
+
+  $('#refreshBtn').addEventListener('click', refreshTable);
+  $('#q').addEventListener('input', ()=> setTimeout(refreshTable, 200));
+
+  // select/deselect/delete selected
+  $('#selectAllBtn').addEventListener('click', ()=> {
+    $$('.row-check').forEach(ch=>ch.checked=true);
+  });
+  $('#deselectBtn').addEventListener('click', ()=> {
+    $$('.row-check').forEach(ch=>ch.checked=false);
+  });
+  $('#deleteSelectedBtn').addEventListener('click', ()=>{
+    const checks = $$('.row-check').filter(ch=>ch.checked);
+    if(!checks.length){ alert('No cookies selected'); return; }
+    if(!confirm('Delete '+checks.length+' selected cookies?')) return;
+    for(const ch of checks){
+      const name = ch.closest('tr').dataset.cookieName;
+      deleteCookie(name, { path: '/' });
+      deleteCookie(name, {});
     }
+    toast('Deleted selected');
+    refreshTable();
+  });
+
+  $('#deleteAllBtn').addEventListener('click', ()=> {
+    if(!confirm('Delete ALL visible cookies? This cannot be undone.')) return;
+    const list = Object.keys(getCookies());
+    for(const k of list){ deleteCookie(k, { path: '/' }); deleteCookie(k, {}); }
+    toast('Attempted to delete ' + list.length + ' cookies.');
+    refreshTable();
+  });
+
+  // create modal
+  $('#createBtn').addEventListener('click', ()=> openEditModal('','', 'create') );
+
+  // quick copy selected names as JSON
+  $('#copyAllBtn').addEventListener('click', ()=>{
+    const txt = exportJSON(false);
+    navigator.clipboard?.writeText(txt).then(()=> toast('Copied cookies JSON'));
+  });
+
+  // export modal
+  function openExportModal(text){
+    const root = $('#modalRoot');
+    root.innerHTML = '';
+    root.style.display = 'block';
+    const bg = document.createElement('div'); bg.className='modal-back';
+    const modal = document.createElement('div'); modal.className='modal';
+    const h = document.createElement('h3'); h.textContent='Exported Cookies (JSON)'; modal.appendChild(h);
+    const ta = document.createElement('textarea'); ta.style.width='100%'; ta.style.height='220px'; ta.value = text; modal.appendChild(ta);
+    const row = document.createElement('div'); row.style.display='flex'; row.style.justifyContent='flex-end'; row.style.marginTop='10px';
+    const dl = document.createElement('button'); dl.className='btn'; dl.textContent='Download'; dl.addEventListener('click', ()=> downloadFile('cookies.json', ta.value));
+    const close = document.createElement('button'); close.className='btn ghost'; close.textContent='Close'; close.addEventListener('click', ()=> { root.style.display='none'; root.innerHTML=''; });
+    row.appendChild(dl); row.appendChild(close); modal.appendChild(row);
+    bg.appendChild(modal); root.appendChild(bg);
+  }
+
+  // small polling to refresh table (1s) - gentle
+  setInterval(refreshTable, 1000);
+  refreshTable();
+
+  // initial hint
+  toast('Cookie tool loaded — HttpOnly cookies are not accessible to JS');
+
+  // expose for debugging
+  window._YC = { getCookies, setCookie, deleteCookie, refreshTable };
+
+})();
+
+</script>
+</body>
+</html>
     th, td {
       border: 1px solid #ccc;
       padding: 8px;
