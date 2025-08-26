@@ -106,6 +106,38 @@
           border-radius: 6px;
         }
 
+        /* Cookie Manager button under version */
+        #cookie-manager {
+          margin-top: 8px;
+          display: block;
+          text-align: center;
+        }
+
+        #cookie-manager a {
+          display: inline-block;
+          margin-top: 4px;
+          padding: 6px 12px;
+          font-size: 0.85rem;
+          color: white;
+          text-decoration: none;
+          border: 1px solid white;
+          border-radius: 6px;
+          transition: 0.3s;
+        }
+
+        #cookie-manager a:hover {
+          background: white;
+          color: black;
+          box-shadow: 0 0 10px #ff99ff;
+        }
+
+        #cookie-manager small {
+          display: block;
+          margin-top: 4px;
+          font-size: 0.75rem;
+          color: #aaa;
+        }
+
         @media (max-width: 600px) {
           #welcome-container h1 {
             font-size: 2rem;
@@ -136,7 +168,13 @@
         </div>
       </div>
 
-      <div id="version-number">1.0.7 Revamp</div>
+      <div id="version-number">
+        1.0.7 Revamp
+        <div id="cookie-manager">
+          <a href="/ccei.html">Cookie Manager</a>
+          <small>Manage your save data</small>
+        </div>
+      </div>
 
       <script>
         (function () {
@@ -262,32 +300,8 @@
         })();
       </script>
     </div>
-    <script id="vike_pageContext" type="application/json">
-      {
-        "_urlRewrite": null,
-        "pageId": "/pages/index",
-        "routeParams": {},
-        "data": {
-          "url": "https://url/",
-          "system": { "params": {}, "search": {}, "origin": "https://url" },
-          "resources": {},
-          "pageMeta": {
-            "title": "Yester's Unblocked Site",
-            "description": "!undefined",
-            "excludePageFromSearch": "!undefined",
-            "language": "!undefined",
-            "socialImageAssetName": "!undefined",
-            "socialImageUrl": "!undefined",
-            "status": "!undefined",
-            "redirect": "!undefined",
-            "custom": []
-          }
-        }
-      }
-    </script>
-    <script id="vike_globalContext" type="application/json">
-      {}
-    </script>
+    <script id="vike_pageContext" type="application/json"> … </script>
+    <script id="vike_globalContext" type="application/json"> {} </script>
     <script
       src="/assets/entries/entry-server-routing.TvlZWs4Q.js"
       type="module"

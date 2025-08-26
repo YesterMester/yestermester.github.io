@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cookie Import/Export (Live)</title>
+  <style>
+    :root{
+      --bg:#0f172a;--panel:#111827;--muted:#94a3b8;--text:#e5e7eb;--accent:#22c55e;--danger:#ef4444;--warn:#f59e0b;--border:#334155;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:linear-gradient(180deg,#0b1220,#0f172a);color:var(--text)}
+    .wrap{max-width:1100px;margin:40px auto;padding:0 16px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+    h1{font-size:clamp(22px,3vw,30px);margin:0;letter-spacing:.3px}
+    .badge{font-size:12px;color:#cbd5e1;background:#0b5;opacity:.9;padding:4px 8px;border-radius:999px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    @media (max-width:960px){.grid{grid-template-columns:1fr}}
+    .card{background:rgba(17,24,39,.75);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+    .card h2{margin:0 0 10px 0;font-size:18px}
+    .card .head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border)}
+    .card .body{padding:16px}
+    .btn{appearance:none;border:none;border-radius:12px;padding:9px 14px;font-weight:600;color:#0b1220;background:var(--text);cursor:pointer;transition:.2s transform,.2s opacity;display:inline-flex;align-items:center;gap:8px}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+    .btn.accent{background:var(--accent);color:#052e16}
+    .btn.warn{background:var(--warn);color:#1f1300}
+    .btn.danger{background:var(--danger);color:#2f0a0a}
+    .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+    .toolbar{display:flex;flex-wrap:wrap;gap:8px}
+    .muted{color:var(--muted);font-size:13px}
+    textarea, input[type="text"], input[type="number"], select{
+      width:100%;background:#0b1020;color:var(--text);border:1px solid var(--border);border-radius:12px;padding:10px 12px;font-family:inherit;font-size:14px;outline:none
+    }
+    textarea{min-height:140px;resize:vertical}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:10px 8px;border-bottom:1px solid var(--border);font-size:14px}
+    th{text-align:left;color:#cbd5e1;font-weight:700}
+    tr:hover td{background:rgba(148,163,184,.05)}
+    code.inline{background:#0b1020;border:1px solid var(--border);padding:2px 6px;border-radius:8px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width:640px){.row{grid-template-columns:1fr}}
+    .pill{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid var(--border);font-size:12px;color:#cbd5e1}
+    .footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px}
+    .toast{position:fixed;right:16px;bottom:16px;background:#0b1020;border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:12px;opacity:0;transform:translateY(10px);pointer-events:none;transition:.3s}
+    .toast.show{opacity:1;transform:translateY(0)}
+    .hint{font-size:12px;color:#9aa8bd}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Cookie Import/Export <span class="pill">Live monitor</span></h1>
+      <div class="toolbar">
+        <button id="btn-copy" class="btn">Copy JSON</button>
+        <button id="btn-download" class="btn accent">Download JSON</button>
+        <label class="btn ghost" for="file-input">Import from file<input id="file-input" type="file" accept="application/json" hidden /></label>
+        <button id="btn-clear" class="btn danger">Delete All Cookies</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Left: cookies table -->
+      <section class="card">
+        <div class="head">
+          <h2>Current Cookies</h2>
+          <div class="muted" id="last-updated">—</div>
+        </div>
+        <div class="body">
+          <div class="hint" style="margin-bottom:8px">This list updates automatically whenever <code class="inline">document.cookie</code> changes.</div>
+          <div style="overflow:auto">
+            <table>
+              <thead>
+                <tr>
+                  <th style="min-width:200px">Name</th>
+                  <th>Value</th>
+                  <th style="width:120px">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="cookie-rows">
+                <tr><td colspan="3" class="muted">No cookies yet.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: export / import -->
+      <section class="card">
+        <div class="head">
+          <h2>Export / Import</h2>
+          <span class="badge">JSON</span>
+        </div>
+        <div class="body">
+          <label class="muted">Exported JSON</label>
+          <textarea id="export-json" spellcheck="false" readonly></textarea>
+
+          <div class="footer">
+            <span class="hint">Only name/value pairs can be exported (browser doesn't expose per-cookie flags).</span>
+          </div>
+
+          <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
+
+          <label class="muted">Import JSON</label>
+          <textarea id="import-json" placeholder='{"cookieName":"value", "another":"123"}' spellcheck="false"></textarea>
+
+          <div class="row">
+            <div>
+              <label class="muted">Expires (days, 0 = session)</label>
+              <input id="opt-days" type="number" min="0" step="1" value="365" />
+            </div>
+            <div>
+              <label class="muted">Path</label>
+              <input id="opt-path" type="text" value="/" />
+            </div>
+          </div>
+          <div class="row" style="margin-top:8px">
+            <div>
+              <label class="muted">SameSite</label>
+              <select id="opt-samesite">
+                <option value="">(unset)</option>
+                <option value="Lax">Lax</option>
+                <option value="Strict">Strict</option>
+                <option value="None">None</option>
+              </select>
+            </div>
+            <div style="display:flex;align-items:end;gap:8px">
+              <label class="muted" style="flex:1">Flags</label>
+              <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="opt-secure"> Secure</label>
+              <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="opt-httponly" disabled> HttpOnly</label>
+            </div>
+          </div>
+
+          <div class="footer">
+            <button id="btn-import" class="btn accent">Import JSON → Cookies</button>
+            <span class="hint">Note: HttpOnly cookies cannot be created via JS.</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <p class="muted" style="margin-top:16px">Tip: Open DevTools → Application → Cookies to watch changes side‑by‑side.</p>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    // ------- Cookie Utilities -------
+    function parseCookies(){
+      const out = {};
+      const raw = document.cookie || "";
+      raw.split(/;\s*/).filter(Boolean).forEach(pair => {
+        const idx = pair.indexOf("=");
+        const name = idx === -1 ? pair : pair.slice(0, idx);
+        const val  = idx === -1 ? ""   : pair.slice(idx+1);
+        try{
+          out[decodeURIComponent(name)] = decodeURIComponent(val);
+        }catch(e){
+          out[name] = val; // fallback if decoding fails
+        }
+      });
+      return out;
+    }
+
+    function setCookie(name, value, opts={}){
+      const parts = [
+        encodeURIComponent(name) + "=" + encodeURIComponent(value)
+      ];
+      if (typeof opts.days === 'number' && opts.days > 0){
+        const d = new Date();
+        d.setTime(d.getTime() + opts.days*24*60*60*1000);
+        parts.push("Expires=" + d.toUTCString());
+      }
+      if (opts.path) parts.push("Path=" + opts.path);
+      if (opts.sameSite) parts.push("SameSite=" + opts.sameSite);
+      if (opts.secure) parts.push("Secure");
+      document.cookie = parts.join("; ");
+    }
+
+    function deleteCookie(name, path="/"){
+      document.cookie = `${encodeURIComponent(name)}=; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Path=${path}`;
+    }
+
+    // ------- UI Logic -------
+    const rowsEl = document.getElementById('cookie-rows');
+    const exportEl = document.getElementById('export-json');
+    const importEl = document.getElementById('import-json');
+    const lastUpdatedEl = document.getElementById('last-updated');
+
+    function renderCookies(){
+      const cookies = parseCookies();
+      const names = Object.keys(cookies);
+      if (names.length === 0){
+        rowsEl.innerHTML = '<tr><td colspan="3" class="muted">No cookies yet.</td></tr>';
+      }else{
+        rowsEl.innerHTML = names.map(name => `
+          <tr>
+            <td><code class="inline">${escapeHtml(name)}</code></td>
+            <td>${escapeHtml(cookies[name])}</td>
+            <td>
+              <button class="btn ghost" data-edit="${escapeAttr(name)}">Edit</button>
+              <button class="btn warn" data-delete="${escapeAttr(name)}">Delete</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+      exportEl.value = JSON.stringify(cookies, null, 2);
+      lastUpdatedEl.textContent = new Date().toLocaleTimeString();
+    }
+
+    function escapeHtml(s){
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+    }
+    function escapeAttr(s){
+      return String(s).replace(/"/g,'&quot;');
+    }
+
+    // Row actions (edit/delete)
+    rowsEl.addEventListener('click', (e)=>{
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      const name = btn.getAttribute('data-edit') || btn.getAttribute('data-delete');
+      if (btn.hasAttribute('data-edit')){
+        const current = parseCookies()[name] ?? '';
+        const value = prompt(`Set new value for cookie "${name}"`, current);
+        if (value !== null){
+          setCookie(name, value, currentOptions());
+          toast('Cookie updated');
+          manualRefresh();
+        }
+      } else if (btn.hasAttribute('data-delete')){
+        if (confirm(`Delete cookie "${name}"?`)){
+          deleteCookie(name, document.getElementById('opt-path').value || '/');
+          toast('Cookie deleted');
+          manualRefresh();
+        }
+      }
+    });
+
+    // Buttons
+    document.getElementById('btn-copy').onclick = async () => {
+      try{
+        await navigator.clipboard.writeText(exportEl.value);
+        toast('Copied to clipboard');
+      }catch(e){
+        toast('Copy failed');
+      }
+    };
+
+    document.getElementById('btn-download').onclick = () => {
+      const blob = new Blob([exportEl.value], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const ts = new Date();
+      const pad=n=>String(n).padStart(2,'0');
+      const name = `cookies-${ts.getFullYear()}${pad(ts.getMonth()+1)}${pad(ts.getDate())}-${pad(ts.getHours())}${pad(ts.getMinutes())}${pad(ts.getSeconds())}.json`;
+      a.href = url; a.download = name; a.click();
+      setTimeout(()=>URL.revokeObjectURL(url), 2000);
+      toast('Download started');
+    };
+
+    document.getElementById('btn-import').onclick = () => {
+      let data;
+      try{
+        data = JSON.parse(importEl.value || '{}');
+      }catch(e){
+        toast('Invalid JSON');
+        return;
+      }
+      if (typeof data !== 'object' || Array.isArray(data)){
+        toast('JSON must be an object of name:value');
+        return;
+      }
+      const opts = currentOptions();
+      const entries = Object.entries(data);
+      entries.forEach(([k,v]) => setCookie(String(k), String(v), opts));
+      toast(`Imported ${entries.length} cookie${entries.length===1?'':'s'}`);
+      manualRefresh();
+    };
+
+    document.getElementById('file-input').addEventListener('change', async (e)=>{
+      const file = e.target.files[0];
+      if (!file) return;
+      const text = await file.text();
+      importEl.value = text;
+      toast('Loaded file → Import JSON box');
+    });
+
+    document.getElementById('btn-clear').onclick = () => {
+      if (!confirm('Delete ALL cookies for this path?')) return;
+      const names = Object.keys(parseCookies());
+      names.forEach(n => deleteCookie(n, document.getElementById('opt-path').value || '/'));
+      toast('All cookies deleted');
+      manualRefresh();
+    };
+
+    function currentOptions(){
+      const days = parseInt(document.getElementById('opt-days').value, 10);
+      return {
+        days: isFinite(days) ? days : 0,
+        path: document.getElementById('opt-path').value || '/',
+        sameSite: document.getElementById('opt-samesite').value || undefined,
+        secure: document.getElementById('opt-secure').checked
+      };
+    }
+
+    // ------- Live monitor (polling) -------
+    let prev = document.cookie;
+    function tick(){
+      const cur = document.cookie;
+      if (cur !== prev){
+        prev = cur;
+        renderCookies();
+      }
+    }
+    function manualRefresh(){
+      prev = ""; // force render on next tick
+      tick();
+    }
+    setInterval(tick, 600); // poll ~1.6x/sec; lightweight
+
+    // Initial render
+    renderCookies();
+
+    // ------- Toast -------
+    const toastEl = document.getElementById('toast');
+    let toastTimer;
+    function toast(msg){
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=>toastEl.classList.remove('show'), 1800);
+    }
+  </script>
+</body>
+</html>
