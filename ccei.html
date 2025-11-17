@@ -123,7 +123,7 @@
       </div>
 
       <div class="meta">
-        <div class="version">1.0.0 • ccei</div>
+        <div class="version">1.0.1 • Refactored</div>
         <div class="cookie-manager">
           <a href="/ccei.html" title="Open Cookie Manager">Cookie Manager</a>
           <small class="quiet">Manage your save data</small>
@@ -132,7 +132,6 @@
     </header>
 
     <div class="grid">
-      <!-- LEFT CONTROLS -->
       <div class="card">
         <div class="controls">
           <div class="row">
@@ -185,7 +184,6 @@
         </div>
       </div>
 
-      <!-- RIGHT TABLE -->
       <div class="table-wrap card">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
           <div>
@@ -211,7 +209,7 @@
         </table>
 
         <footer style="margin-top:14px">
-          <div class="note">Tip: You cannot read or delete <strong>HttpOnly</strong> cookies from JavaScript — they will not appear in this list.</div>
+          <div class="note">Tip: You cannot read/delete <strong>HttpOnly</strong> cookies, nor can you read attributes like <strong>Path</strong>, <strong>Domain</strong>, or <strong>Expires</strong> from JavaScript. Only name/value pairs are accessible.</div>
         </footer>
       </div>
     </div>
@@ -219,15 +217,12 @@
     <footer>© Yester's Unblocked Site</footer>
   </div>
 
-  <!-- Modal (edit/create) -->
   <div id="modalRoot" style="display:none"></div>
 
-  <!-- Toast -->
   <div id="toast" style="display:none" class="toast"></div>
 
 <script>
-/* ---------- SAFE COOKIE MANAGER SCRIPT ---------- */
-/* careful: JS can only access non-HttpOnly cookies for current domain/path */
+/* ---------- SAFE COOKIE MANAGER SCRIPT (Refactored) ---------- */
 (function(){
   'use strict';
 
@@ -301,6 +296,7 @@
   const countLabel = $('#countLabel');
 
   // Build the table row for a cookie (safe text insertion)
+  // REFACTORED: Removed event listeners for delegation
   function makeRow(name, value){
     const tr = document.createElement('tr');
     tr.dataset.cookieName = name;
@@ -337,28 +333,19 @@
     copyBtn.className = 'action-btn';
     copyBtn.textContent = 'Copy';
     copyBtn.title = 'Copy value';
-    copyBtn.addEventListener('click', ()=> {
-      navigator.clipboard?.writeText(value).then(()=>toast('Copied value to clipboard'));
-    });
+    copyBtn.dataset.action = 'copy'; // For delegation
 
     const editBtn = document.createElement('button');
     editBtn.className = 'action-btn';
     editBtn.textContent = 'Edit';
     editBtn.title = 'Edit cookie';
-    editBtn.addEventListener('click', ()=> openEditModal(name, value));
+    editBtn.dataset.action = 'edit'; // For delegation
 
     const delBtn = document.createElement('button');
     delBtn.className = 'action-btn ghost';
     delBtn.textContent = 'Delete';
     delBtn.title = 'Delete cookie';
-    delBtn.addEventListener('click', ()=> {
-      if(!confirm('Delete cookie "'+name+'"?')) return;
-      // best effort: attempt delete on path / and current path
-      deleteCookie(name, {path:'/'});
-      deleteCookie(name, {}); // current path
-      toast('Deleted "'+name+'"');
-      refreshTable();
-    });
+    delBtn.dataset.action = 'delete'; // For delegation
 
     tdAct.appendChild(copyBtn);
     tdAct.appendChild(editBtn);
@@ -373,18 +360,62 @@
 
   // render table with optional filter
   function refreshTable(){
+    // Save selected state
+    const selected = new Set();
+    $$('.row-check:checked').forEach(cb => {
+      const name = cb.closest('tr')?.dataset.cookieName;
+      if(name) selected.add(name);
+    });
+
     const cookies = getCookies();
     const query = (qInput.value || '').trim().toLowerCase();
     const entries = Object.entries(cookies).filter(([k,v]) => {
       if(!query) return true;
       return k.toLowerCase().includes(query) || (String(v||'')).toLowerCase().includes(query);
     }).sort((a,b) => a[0].localeCompare(b[0]));
-    tbody.innerHTML = '';
+    
+    tbody.innerHTML = ''; // Clear table
+    
     for(const [k,v] of entries){
-      tbody.appendChild(makeRow(k,v));
+      const row = makeRow(k,v);
+      // Restore selected state
+      if(selected.has(k)) {
+        row.querySelector('.row-check').checked = true;
+      }
+      tbody.appendChild(row);
     }
     countLabel.textContent = `Cookies: ${entries.length}`;
   }
+
+  // NEW: Event delegation for table actions
+  tbody.addEventListener('click', (ev) => {
+    const target = ev.target.closest('button.action-btn');
+    if (!target) return; // Click was not on an action button
+    
+    const tr = target.closest('tr');
+    const name = tr?.dataset.cookieName;
+    if (!name) return; // Should not happen
+
+    const { action } = target.dataset;
+
+    if (action === 'copy') {
+      const value = getCookies()[name] || '';
+      navigator.clipboard?.writeText(value).then(() => toast('Copied value to clipboard'));
+    } 
+    else if (action === 'edit') {
+      const value = getCookies()[name] || '';
+      openEditModal(name, value);
+    }
+    else if (action === 'delete') {
+      if (!confirm('Delete cookie "' + name + '"?')) return;
+      // best effort: attempt delete on path / and current path
+      deleteCookie(name, { path: '/' });
+      deleteCookie(name, {}); // current path
+      toast('Deleted "' + name + '"');
+      refreshTable(); // Update table after delete
+    }
+  });
+
 
   // modal for edit/create
   function openEditModal(name='', value='', mode='edit'){
@@ -595,8 +626,10 @@
     bg.appendChild(modal); root.appendChild(bg);
   }
 
-  // small polling to refresh table (1s) - gentle
-  setInterval(refreshTable, 1000);
+  // DELETED: small polling to refresh table (1s) - gentle
+  // setInterval(refreshTable, 1000);
+  
+  // Initial load
   refreshTable();
 
   // initial hint
@@ -608,138 +641,5 @@
 })();
 
 </script>
-</body>
-</html>
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background: #f4f4f4;
-    }
-    .button-row {
-      margin-bottom: 15px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Cookie Import/Export Tool</h1>
-
-  <!-- Back Button Styled Like Others -->
-  <div class="button-row">
-    <button onclick="window.location.href='index.html'">⬅ Back to Index</button>
-  </div>
-
-  <div>
-    <button onclick="exportCookies()">Export Cookies (JSON)</button>
-    <button onclick="downloadCookies()">Download Cookies</button>
-    <button onclick="importCookies()">Import Cookies from Textarea</button>
-    <input type="file" id="fileInput" onchange="importCookiesFromFile(event)">
-    <button onclick="deleteAllCookies()">Delete All Cookies</button>
-  </div>
-
-  <textarea id="cookieData" placeholder="Exported/Import JSON will appear here..."></textarea>
-
-  <h2>Current Cookies</h2>
-  <table id="cookieTable">
-    <thead>
-      <tr><th>Name</th><th>Value</th><th>Actions</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <script>
-    function parseCookies() {
-      const cookies = document.cookie.split('; ');
-      const result = {};
-      for (let c of cookies) {
-        if (!c) continue;
-        const [name, ...rest] = c.split('=');
-        result[name] = rest.join('=');
-      }
-      return result;
-    }
-
-    function updateCookieTable() {
-      const tableBody = document.querySelector('#cookieTable tbody');
-      tableBody.innerHTML = '';
-      const cookies = parseCookies();
-      for (let [name, value] of Object.entries(cookies)) {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${name}</td>
-          <td>${value}</td>
-          <td>
-            <button onclick="deleteCookie('${name}')">Delete</button>
-            <button onclick="editCookie('${name}', '${value}')">Edit</button>
-          </td>`;
-        tableBody.appendChild(row);
-      }
-    }
-
-    function exportCookies() {
-      const cookies = parseCookies();
-      const json = JSON.stringify(cookies, null, 2);
-      document.getElementById('cookieData').value = json;
-    }
-
-    function downloadCookies() {
-      const data = document.getElementById('cookieData').value || JSON.stringify(parseCookies(), null, 2);
-      const blob = new Blob([data], {type: 'application/json'});
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'cookies.json';
-      a.click();
-    }
-
-    function importCookies() {
-      try {
-        const data = document.getElementById('cookieData').value;
-        const cookies = JSON.parse(data);
-        for (let [name, value] of Object.entries(cookies)) {
-          document.cookie = `${name}=${value}; path=/;`;
-        }
-        updateCookieTable();
-      } catch (err) {
-        alert('Invalid JSON');
-      }
-    }
-
-    function importCookiesFromFile(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = e => {
-        document.getElementById('cookieData').value = e.target.result;
-        importCookies();
-      };
-      reader.readAsText(file);
-    }
-
-    function deleteCookie(name) {
-      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-      updateCookieTable();
-    }
-
-    function deleteAllCookies() {
-      const cookies = parseCookies();
-      for (let name in cookies) {
-        deleteCookie(name);
-      }
-    }
-
-    function editCookie(name, value) {
-      const newValue = prompt('Enter new value for ' + name, value);
-      if (newValue !== null) {
-        document.cookie = `${name}=${newValue}; path=/;`;
-        updateCookieTable();
-      }
-    }
-
-    // Auto update every 600ms
-    setInterval(updateCookieTable, 600);
-    updateCookieTable();
-  </script>
 </body>
 </html>
